@@ -4,9 +4,7 @@ import { useState } from 'react'
 
 import { LocationPickerSearchInput } from './location-picker-search-input'
 
-type LocationPickerSearchProps = {}
-
-export const LocationPickerSearch = ({}: LocationPickerSearchProps) => {
+export const LocationPickerSearch = () => {
     const [value, setValue] = useState<string>('')
 
     return (

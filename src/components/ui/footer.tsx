@@ -6,7 +6,7 @@ export const Footer = () => {
     return (
         <footer className="flex flex-col justify-between border-t border-gray-200 py-4 text-sm text-gray-500 sm:flex-row">
             <div>
-                &copy; 2025 Geo tools for{' '}
+                &copy; 2025 Location Picker by{' '}
                 <Link
                     href="https://www.tripadvancer.com"
                     target="__blank"

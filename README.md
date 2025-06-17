@@ -20,5 +20,5 @@ A platform built by travelers — for discovering, sharing, and remembering amaz
 
 ## Follow me
 
-[Linked In](https://www.linkedin.com/in/oskolsky)
-[Tripadvancer](https://www.tripadvancer.com/users/oskolsky)
+- [Linked In](https://www.linkedin.com/in/oskolsky)
+- [Tripadvancer](https://www.tripadvancer.com/users/oskolsky)

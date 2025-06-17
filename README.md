@@ -16,7 +16,7 @@ A simple location picker component built with Next.js and MapLibre.
 
 A platform built by travelers — for discovering, sharing, and remembering amazing places.
 
-[https://tripadvancer.com](https://tripadvancer.com)
+[https://www.tripadvancer.com](https://www.tripadvancer.com)
 
 ## Follow me
 

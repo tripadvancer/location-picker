@@ -33,6 +33,12 @@ export const LocationPickerMap = () => {
                 pitch: 0,
                 padding: { top: 0, right: 0, bottom: 0, left: 0 },
             })
+
+            mapRef.current?.flyTo({
+                center: [lng, lat],
+                zoom: zoom,
+                duration: 500,
+            })
         }
     }, [searchParams])
 
@@ -47,6 +53,7 @@ export const LocationPickerMap = () => {
 
     const handleMoveEnd = useCallback(() => {
         setIsMapMoving(false)
+
         const map = mapRef.current
         if (!map) return
 

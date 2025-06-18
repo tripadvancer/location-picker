@@ -30,7 +30,7 @@ export async function GET(req: Request) {
 
         return NextResponse.json(
             {
-                items: data.map((item: any) => ({
+                items: data.map((item: { display_place: string; display_name: string; lat: string; lon: string }) => ({
                     title: item.display_place,
                     description: item.display_name,
                     coordinates: {

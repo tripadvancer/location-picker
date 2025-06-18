@@ -31,7 +31,7 @@ export const LocationPickerSearch = () => {
 
     const ref = useRef<HTMLDivElement>(null)
 
-    const { data, error, isLoading } = useSWR<SearchResponse>(
+    const { data, isLoading } = useSWR<SearchResponse>(
         debouncedValue.length >= 2 ? `/api/search?q=${encodeURIComponent(debouncedValue)}` : null,
         fetcher,
     )

@@ -20,7 +20,7 @@ export const LocationPickerSearchInput = (props: LocationPickerSearchInputProps)
     return (
         <div className="flex h-10">
             <div className="flex size-10 shrink-0 items-center justify-center">
-                {props.isLoading ? <RadarIcon className="animate-spin" size={16} /> : <SearchIcon size={16} />}
+                {props.isLoading ? <RadarIcon className="animate-spin" size={20} /> : <SearchIcon size={20} />}
             </div>
 
             <div className="h-full w-full shrink">
@@ -42,7 +42,7 @@ export const LocationPickerSearchInput = (props: LocationPickerSearchInputProps)
                     className="flex size-10 shrink-0 cursor-pointer items-center justify-center text-gray-500 hover:text-blue-500"
                     onClick={props.onClear}
                 >
-                    <XIcon size={16} />
+                    <XIcon size={20} />
                 </div>
             )}
         </div>

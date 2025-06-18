@@ -1,4 +1,7 @@
-import { Coordinates } from './common.types'
+export type Coordinates = {
+    lat: number
+    lng: number
+}
 
 export type SearchItem = {
     title: string

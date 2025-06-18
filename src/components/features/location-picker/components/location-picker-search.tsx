@@ -2,12 +2,13 @@
 
 import { RefObject, useEffect, useRef, useState } from 'react'
 
+import { SearchIcon } from 'lucide-react'
 import useSWR from 'swr'
 import { useDebounceValue, useOnClickOutside } from 'usehooks-ts'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { SearchItem } from '@/utils/types/search.types'
+import { SearchItem } from '@/utils/types'
 
 import { LocationPickerSearchInput } from './location-picker-search-input'
 
@@ -65,14 +66,25 @@ export const LocationPickerSearch = () => {
         }
     }
 
+    const handleInputClear = () => {
+        setValue('')
+        setIsAutocompleteVisible(false)
+    }
+
+    const handleInputClick = () => {
+        if (data?.items?.length) {
+            setIsAutocompleteVisible(true)
+        }
+    }
+
     return (
         <div ref={ref} className="rounded-lg bg-white shadow-black sm:w-1/2">
             <LocationPickerSearchInput
                 value={value}
                 isLoading={isLoading}
                 onChange={setValue}
-                onClear={() => setValue('')}
-                onClick={() => {}}
+                onClear={handleInputClear}
+                onClick={handleInputClick}
             />
 
             {isAutocompleteVisible && (

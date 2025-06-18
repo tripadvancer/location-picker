@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 
-import { CoordinateFormat } from '@/utils/common.enums'
-import { convertDMStoDD, detectCoordinateFormat, parseDDCoordinates } from '@/utils/geo.helpers'
+import { CoordinateFormat } from '@/utils/enums'
+import { convertDMStoDD, detectCoordinateFormat, parseDDCoordinates } from '@/utils/helpers'
 
-import { handleCoordinates } from './search.helpers'
+import { handleCoordinates } from './helpers'
 
 export const GET = async (req: Request) => {
     const { searchParams } = new URL(req.url)

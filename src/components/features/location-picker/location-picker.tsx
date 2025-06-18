@@ -4,8 +4,6 @@ import { useEffect } from 'react'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { config } from '@/utils/config'
-
 import { LocationPickerMap } from './components/location-picker-map'
 import { LocationPickerResult } from './components/location-picker-result'
 import { LocationPickerShare } from './components/location-picker-share'
@@ -22,9 +20,9 @@ export const LocationPicker = () => {
         if (!lng || !lat || !zoom) {
             const params = new URLSearchParams(searchParams.toString())
 
-            if (!lat) params.set('lat', config.map.lat.toString())
-            if (!lng) params.set('lng', config.map.lng.toString())
-            if (!zoom) params.set('zoom', config.map.zoom.toString())
+            if (!lat) params.set('lat', '51.47722')
+            if (!lng) params.set('lng', '0.00000')
+            if (!zoom) params.set('zoom', '5')
 
             router.replace(`?${params.toString()}`, { scroll: false })
         }

@@ -2,7 +2,6 @@
 
 import { RefObject, useEffect, useRef, useState } from 'react'
 
-import { SearchIcon } from 'lucide-react'
 import useSWR from 'swr'
 import { useDebounceValue, useOnClickOutside } from 'usehooks-ts'
 
@@ -61,7 +60,6 @@ export const LocationPickerSearch = () => {
 
             router.replace(`/?${currentParams.toString()}`)
 
-            setValue(item.title)
             setIsAutocompleteVisible(false)
         }
     }
@@ -92,10 +90,10 @@ export const LocationPickerSearch = () => {
                     {data?.items.map((item, index) => (
                         <div
                             key={`search-item-${index}`}
-                            className="cursor-pointer overflow-hidden rounded-md px-2 py-1 hover:bg-gray-100"
+                            className="cursor-pointer rounded-md px-2 py-1 hover:bg-gray-100"
                             onClick={() => handleSelectItem(item)}
                         >
-                            <div className="line-clamp-1 font-semibold break-words">{item.title}</div>
+                            <div className="line-clamp-1 text-sm break-words">{item.title}</div>
                             <div className="line-clamp-2 break-words text-gray-500">{item.description}</div>
                         </div>
                     ))}

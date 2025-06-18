@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 
-import { CoordinateFormat } from '@/utils/enums'
-import { convertDMStoDD, detectCoordinateFormat, parseDDCoordinates } from '@/utils/helpers'
+import { SearchType } from '@/utils/enums'
+import { convertDMStoDD, detectSearchType, parseDDCoordinates } from '@/utils/helpers'
 
-import { handleCoordinates } from './helpers'
+import { handleAutocomplete, handleCoordinates } from './helpers'
 
 export const GET = async (req: Request) => {
     const { searchParams } = new URL(req.url)
@@ -13,21 +13,24 @@ export const GET = async (req: Request) => {
         return NextResponse.json({ items: [], error: 'Missing query parameter "q"' }, { status: 400 })
     }
 
-    const coordinateFormat = detectCoordinateFormat(q)
+    const searchType = detectSearchType(q)
 
-    switch (coordinateFormat) {
-        case CoordinateFormat.DD: {
+    switch (searchType) {
+        case SearchType.DD: {
             const coordinates = parseDDCoordinates(q)
             if (coordinates) return handleCoordinates(coordinates)
             break
         }
-        case CoordinateFormat.DMS: {
+        case SearchType.DMS: {
             const coordinates = convertDMStoDD(q)
             if (coordinates) return handleCoordinates(coordinates)
             break
         }
 
         default:
+            if (q.length > 2) {
+                return handleAutocomplete(q)
+            }
             break
     }
 

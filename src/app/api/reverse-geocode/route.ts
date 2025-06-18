@@ -5,15 +5,23 @@ export async function GET(req: Request) {
         const { searchParams } = new URL(req.url)
         const lat = searchParams.get('lat')
         const lon = searchParams.get('lon')
-
-        if (!lat || !lon) {
-            return NextResponse.json({ error: 'Missing lat or lon' }, { status: 400 })
-        }
-
         const apiKey = process.env.LOCATIONIQ_API_KEY
         const apiUrl = process.env.LOCATIONIQ_API_URL
 
-        const url = `${apiUrl}/reverse.php?key=${apiKey}&lat=${lat}&lon=${lon}&normalizeaddress=1&oceans=1&format=json`
+        if (!lat || !lon || !apiKey || !apiUrl) {
+            return NextResponse.json({ error: 'Missing lat or lon' }, { status: 400 })
+        }
+
+        const params = new URLSearchParams({
+            key: apiKey,
+            lat,
+            lon,
+            normalizeaddress: '1',
+            oceans: '1',
+            format: 'json',
+        })
+
+        const url = `${apiUrl}/reverse.php?${params.toString()}`
         const res = await fetch(url)
 
         if (!res.ok) {

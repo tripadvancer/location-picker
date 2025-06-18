@@ -1,9 +1,9 @@
-import { CoordinateFormat } from './enums'
+import { SearchType } from './enums'
 
-export const detectCoordinateFormat = (value: string): CoordinateFormat => {
-    if (isValidDDCoordinates(value)) return CoordinateFormat.DD
-    if (isValidDMSCoordinates(value)) return CoordinateFormat.DMS
-    return CoordinateFormat.Unknown
+export const detectSearchType = (value: string): SearchType => {
+    if (isValidDDCoordinates(value)) return SearchType.DD
+    if (isValidDMSCoordinates(value)) return SearchType.DMS
+    return SearchType.TEXT
 }
 
 export const isValidDDCoordinates = (value: string): boolean => {

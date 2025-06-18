@@ -1,5 +1,5 @@
-export enum CoordinateFormat {
+export enum SearchType {
     DD = 'DD',
     DMS = 'DMS',
-    Unknown = 'Unknown',
+    TEXT = 'TEXT',
 }

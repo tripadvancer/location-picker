@@ -1,12 +1,18 @@
-import { ReverseGeocodeParams, ReverseGeocodeResponse } from './reverse-geocode.types'
+import { Coordinates } from '@/utils/types/common.types'
 
-export async function reverseGeocode({ lat, lng }: ReverseGeocodeParams): Promise<ReverseGeocodeResponse> {
+type ReverseGeocodeParams = Coordinates
+
+type ReverseGeocodeResponse = {
+    address: string
+}
+
+export async function reverseGeocode(coordinates: ReverseGeocodeParams): Promise<ReverseGeocodeResponse> {
     const params = new URLSearchParams({
-        lat: lat.toString(),
-        lng: lng.toString(),
+        lat: coordinates.lat.toString(),
+        lon: coordinates.lng.toString(),
     })
 
-    const url = '/api/reverse-geocode?' + params.toString()
+    const url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/reverse-geocode?${params.toString()}`
     const res = await fetch(url)
 
     if (!res.ok) {

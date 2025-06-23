@@ -2,6 +2,7 @@
 
 import { RefObject, useEffect, useRef, useState } from 'react'
 
+import { HistoryIcon, LocateFixedIcon, MapPinIcon, SearchIcon } from 'lucide-react'
 import useSWR from 'swr'
 import { useDebounceValue, useOnClickOutside } from 'usehooks-ts'
 
@@ -90,11 +91,15 @@ export const LocationPickerSearch = () => {
                     {data?.items.map((item, index) => (
                         <div
                             key={`search-item-${index}`}
-                            className="cursor-pointer rounded-md px-2 py-1 hover:bg-gray-100"
+                            className="flex cursor-pointer gap-x-2.5 rounded-md px-2 py-1 hover:bg-gray-100"
                             onClick={() => handleSelectItem(item)}
                         >
-                            <div className="line-clamp-1 text-sm break-words">{item.title}</div>
-                            <div className="line-clamp-2 break-words text-gray-500">{item.description}</div>
+                            <MapPinIcon size={16} className="mt-0.5 w-4 shrink-0 text-gray-400" />
+
+                            <div>
+                                <div className="line-clamp-1 text-sm break-words">{item.title}</div>
+                                <div className="line-clamp-2 text-xs break-words text-gray-400">{item.description}</div>
+                            </div>
                         </div>
                     ))}
                 </div>

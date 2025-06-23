@@ -1,7 +1,5 @@
 'use client'
 
-import { CopyIcon } from 'lucide-react'
-
 import { useSearchParams } from 'next/navigation'
 
 function toDMS(deg: number, isLat: boolean) {
@@ -38,7 +36,6 @@ export const LocationPickerResultDms = () => {
             <span>
                 {toDMS(latNum, true)} {toDMS(lngNum, false)}{' '}
             </span>
-            <CopyIcon size={16} className="inline-block" />
         </div>
     )
 }

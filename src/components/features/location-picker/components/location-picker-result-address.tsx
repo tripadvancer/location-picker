@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 import useSWRMutation from 'swr/mutation'
 
 import { useSearchParams } from 'next/navigation'
@@ -11,24 +13,54 @@ export const LocationPickerResultAddress = () => {
     const lat = searchParams.get('lat')
     const lng = searchParams.get('lng')
 
-    const url = lat && lng ? `/api/reverse-geocode?lat=${lat}&lon=${lng}` : null
+    const [address, setAddress] = useState<string | null>(null)
+    const [lastCoords, setLastCoords] = useState<string | null>(null)
 
-    const { data, error, isMutating, trigger } = useSWRMutation(url, fetcher)
+    const url = lat && lng ? `/api/reverse-geocode?lat=${lat}&lon=${lng}` : null
+    const { trigger, isMutating, error } = useSWRMutation(url, fetcher)
+
+    const currentCoords = lat && lng ? `${lat},${lng}` : null
+
+    useEffect(() => {
+        if (currentCoords !== lastCoords) {
+            setAddress(null)
+            setLastCoords(currentCoords)
+        }
+    }, [currentCoords, lastCoords])
+
+    const handleClick = async () => {
+        if (!url) return
+        try {
+            const result = await trigger()
+            if (result?.address) {
+                setAddress(result.address)
+            }
+        } catch (err) {
+            console.error('Error fetching address:', err)
+            setAddress(null)
+        }
+    }
 
     return (
         <div>
-            <div onClick={() => trigger()} className="cursor-pointer text-blue-500">
-                Get address
-            </div>
-
-            {isMutating && <div className="text-gray-500">Loading...</div>}
+            {!address && (
+                <>
+                    {isMutating ? (
+                        <div className="text-gray-500">Loading...</div>
+                    ) : (
+                        <div onClick={handleClick} className="cursor-pointer text-blue-500">
+                            Get address
+                        </div>
+                    )}
+                </>
+            )}
 
             {error && <div className="text-red-500">Error fetching address</div>}
 
-            {!isMutating && data?.address && (
+            {address && !isMutating && (
                 <div>
                     <strong>Address: </strong>
-                    <span>{data.address}</span>
+                    <span>{address}</span>
                 </div>
             )}
         </div>

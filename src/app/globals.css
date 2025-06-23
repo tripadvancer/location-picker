@@ -26,12 +26,9 @@ body {
 }
 
 
-/* --wrapper {
-  max-width: 1000px;
-  margin-inline: auto;
-  padding-inline: 2rem;
-} */
-/* } */
+.maplibregl-map {
+  font: inherit !important;
+}
 
 @theme {
   --shadow-black: 0 4px 8px rgba(78, 87, 94, 0.32); 

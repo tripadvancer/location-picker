@@ -2,7 +2,7 @@
 
 import { RefObject, useEffect, useRef, useState } from 'react'
 
-import { HistoryIcon, LocateFixedIcon, MapPinIcon, SearchIcon } from 'lucide-react'
+import { MapPinIcon } from 'lucide-react'
 import useSWR from 'swr'
 import { useDebounceValue, useOnClickOutside } from 'usehooks-ts'
 

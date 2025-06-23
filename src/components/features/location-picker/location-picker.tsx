@@ -2,14 +2,12 @@
 
 import { useEffect } from 'react'
 
-import { InfoIcon } from 'lucide-react'
-
 import { useRouter, useSearchParams } from 'next/navigation'
 
+import { LocationPickerInfo } from './components/location-picker-info'
 import { LocationPickerMap } from './components/location-picker-map'
 import { LocationPickerResult } from './components/location-picker-result'
 import { LocationPickerSaved } from './components/location-picker-saved'
-import { LocationPickerShare } from './components/location-picker-share'
 
 export const LocationPicker = () => {
     const searchParams = useSearchParams()
@@ -33,20 +31,10 @@ export const LocationPicker = () => {
 
     return (
         <section className="space-y-8">
-            <div className="flex items-center gap-x-2 rounded-lg bg-blue-50 p-4 text-sm text-blue-800">
-                <InfoIcon />
-                <p>
-                    We dont't store your location data, all <strong>data is processed locally</strong>.
-                </p>
-            </div>
+            <LocationPickerInfo />
             <LocationPickerMap />
             <LocationPickerResult />
-
             <LocationPickerSaved />
-
-            {/* <div className="flex flex-col items-start gap-y-8 sm:flex-row sm:justify-between">
-                <LocationPickerShare />
-            </div> */}
         </section>
     )
 }

@@ -109,7 +109,7 @@ export const LocationPickerMap = () => {
     if (!initialViewState) return null
 
     return (
-        <div className="aspect-square sm:aspect-video">
+        <div className="over aspect-square overflow-hidden rounded sm:aspect-video">
             <ReactMapGl
                 ref={mapRef}
                 id="locations-map"

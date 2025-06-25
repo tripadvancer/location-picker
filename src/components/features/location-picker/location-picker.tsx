@@ -7,7 +7,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { LocationPickerInfo } from './components/location-picker-info'
 import { LocationPickerMap } from './components/location-picker-map'
 import { LocationPickerResult } from './components/location-picker-result'
-import { LocationPickerSaved } from './components/location-picker-saved'
 
 export const LocationPicker = () => {
     const searchParams = useSearchParams()
@@ -21,9 +20,9 @@ export const LocationPicker = () => {
         if (!lng || !lat || !zoom) {
             const params = new URLSearchParams(searchParams.toString())
 
-            if (!lat) params.set('lat', '51.47722')
-            if (!lng) params.set('lng', '0.00000')
-            if (!zoom) params.set('zoom', '5')
+            params.set('lat', '51.47722')
+            params.set('lng', '0.00000')
+            params.set('zoom', '5')
 
             router.replace(`?${params.toString()}`, { scroll: false })
         }
@@ -34,7 +33,6 @@ export const LocationPicker = () => {
             <LocationPickerInfo />
             <LocationPickerMap />
             <LocationPickerResult />
-            <LocationPickerSaved />
         </section>
     )
 }

@@ -83,14 +83,16 @@ export const LocationPickerShare = () => {
                     title: `Open in ${selectedNav.name}`,
                     url: navLink,
                 })
-            } catch (err: any) {
+            } catch (err: unknown) {
                 if (
-                    err?.name === 'AbortError' ||
-                    err?.name === 'DOMException' ||
-                    err?.message?.toLowerCase?.().includes('cancel')
+                    err instanceof DOMException &&
+                    (err.name === 'AbortError' ||
+                        err.name === 'DOMException' ||
+                        err.message.toLowerCase().includes('cancel'))
                 ) {
                     return
                 }
+
                 toast.error('Error', 'Failed to share link')
             }
         } else {
@@ -101,13 +103,11 @@ export const LocationPickerShare = () => {
     return (
         <div className="space-y-4">
             <div className="text-sm">Choose a navigator:</div>
-            <div className="flex items-center gap-x-4">
+            <div className="flex w-full flex-wrap items-center gap-4">
                 {NAVIGATORS.map(nav => (
                     <div
                         key={nav.id}
-                        className={`flex size-16 cursor-pointer items-center justify-center rounded-lg border transition ${
-                            navigator === nav.id ? 'border-orange-300 bg-orange-100' : 'border-transparent bg-orange-50'
-                        }`}
+                        className={`flex h-16 flex-1 cursor-pointer items-center justify-center rounded-lg border transition sm:flex-[1_1_100%] md:size-16 md:flex-none ${navigator === nav.id ? 'border-orange-300 bg-orange-100' : 'border-transparent bg-orange-50'}`}
                         title={nav.name}
                         onClick={() => setNavigator(nav.id)}
                     >

@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { GeolocateControl, MapRef, Map as ReactMapGl, ScaleControl, ViewState } from 'react-map-gl/maplibre'
+import { GeolocateControl, MapRef, Map as ReactMapGl, ViewState } from 'react-map-gl/maplibre'
 
 import { MinusIcon, PlusIcon } from 'lucide-react'
 
@@ -127,7 +127,6 @@ export const LocationPickerMap = () => {
                     </LocationPickerMapControl>
 
                     <GeolocateControl />
-                    <ScaleControl />
                 </div>
 
                 <Image

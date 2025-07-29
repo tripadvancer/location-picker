@@ -4,9 +4,11 @@ import { useEffect } from 'react'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { LocationPickerInfo } from './components/location-picker-info'
+import { Search } from '@/components/features/search/search'
+
 import { LocationPickerMap } from './components/location-picker-map'
-import { LocationPickerResult } from './components/location-picker-result'
+
+// import { LocationPickerShare } from './components/location-picker-share'
 
 export const LocationPicker = () => {
     const searchParams = useSearchParams()
@@ -29,10 +31,12 @@ export const LocationPicker = () => {
     }, [lat, lng, zoom, searchParams, router])
 
     return (
-        <section className="space-y-8">
-            <LocationPickerInfo />
+        <section className="space-y-4 sm:space-y-8">
+            <div className="block sm:hidden">
+                <Search />
+            </div>
             <LocationPickerMap />
-            <LocationPickerResult />
+            {/* <LocationPickerShare /> */}
         </section>
     )
 }

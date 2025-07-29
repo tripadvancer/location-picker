@@ -9,7 +9,6 @@ import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 import { LocationPickerMapControl } from './location-picker-map-control'
-import { LocationPickerSearch } from './location-picker-search'
 
 export const LocationPickerMap = () => {
     const router = useRouter()
@@ -109,7 +108,7 @@ export const LocationPickerMap = () => {
     if (!initialViewState) return null
 
     return (
-        <div className="over aspect-square overflow-hidden rounded sm:aspect-video">
+        <div className="over aspect-square overflow-hidden rounded-lg sm:aspect-video">
             <ReactMapGl
                 ref={mapRef}
                 id="locations-map"
@@ -119,10 +118,6 @@ export const LocationPickerMap = () => {
                 onMoveStart={handleMoveStart}
                 onMoveEnd={handleMoveEnd}
             >
-                <div className="absolute top-2 right-2 left-2 z-20">
-                    <LocationPickerSearch />
-                </div>
-
                 <div className="absolute right-2 bottom-2 z-10 flex flex-col gap-y-1">
                     <LocationPickerMapControl onClick={() => handleZoom('in')}>
                         <PlusIcon size={16} />

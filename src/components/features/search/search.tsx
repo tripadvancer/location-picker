@@ -10,7 +10,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 
 import { SearchItem } from '@/utils/types'
 
-import { LocationPickerSearchInput } from './location-picker-search-input'
+import { SearchInput } from './search-input'
 
 type SearchResponse = {
     items: SearchItem[]
@@ -22,7 +22,7 @@ const fetcher = async (url: string): Promise<SearchResponse> => {
     return res.json()
 }
 
-export const LocationPickerSearch = () => {
+export const Search = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
 
@@ -77,8 +77,8 @@ export const LocationPickerSearch = () => {
     }
 
     return (
-        <div ref={ref} className="rounded-lg bg-white shadow-black sm:w-1/2">
-            <LocationPickerSearchInput
+        <div ref={ref} className="relative">
+            <SearchInput
                 value={value}
                 isLoading={isLoading}
                 onChange={setValue}
@@ -87,11 +87,11 @@ export const LocationPickerSearch = () => {
             />
 
             {isAutocompleteVisible && (
-                <div className="px-1 pb-1">
+                <div className="absolute top-full right-0 left-0 z-10 rounded-lg bg-white p-1 shadow-lg">
                     {data?.items.map((item, index) => (
                         <div
                             key={`search-item-${index}`}
-                            className="flex cursor-pointer gap-x-2.5 rounded-md px-2 py-1 hover:bg-gray-100"
+                            className="flex cursor-pointer gap-x-2.5 rounded-md px-2 py-1 hover:bg-gray-50"
                             onClick={() => handleSelectItem(item)}
                         >
                             <MapPinIcon size={16} className="mt-0.5 w-4 shrink-0 text-gray-400" />

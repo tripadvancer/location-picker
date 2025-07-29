@@ -84,8 +84,10 @@ export const LocationPickerShare = () => {
                     title: `Open in ${selectedNav.name}`,
                     url: navLink,
                 })
-            } catch {
-                toast.error('Error', 'Failed to share link')
+            } catch (err: any) {
+                if (err.name !== 'AbortError') {
+                    toast.error('Error', 'Failed to share link')
+                }
             }
         } else {
             handleCopy()

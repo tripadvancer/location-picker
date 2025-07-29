@@ -1,11 +1,8 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+'use client '
 
-import classNames from 'classnames'
+import { ButtonHTMLAttributes } from 'react'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    icon?: ReactNode
-    className?: string
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {}
 
 export const Button = (props: ButtonProps) => {
     const { className, ...rest } = props
@@ -13,16 +10,10 @@ export const Button = (props: ButtonProps) => {
     return (
         <button
             {...rest}
-            className={classNames(
-                'h-10 cursor-pointer rounded-lg bg-blue-500 px-6 font-medium whitespace-nowrap text-white hover:bg-blue-600 focus:outline-none',
-                className,
-            )}
+            className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300"
             onClick={props.onClick}
         >
-            <span className="flex items-center justify-center gap-x-2">
-                {props.icon}
-                {props.children}
-            </span>
+            {props.children}
         </button>
     )
 }

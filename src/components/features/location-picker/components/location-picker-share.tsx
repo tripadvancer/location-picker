@@ -2,10 +2,13 @@
 
 import { useState } from 'react'
 
+import { useCopyToClipboard } from 'usehooks-ts'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
+import { Button } from '@/components/ui/button'
 import { useToast } from '@/utils/providers/toast-provider'
 
 enum Navigator {
@@ -46,6 +49,7 @@ const isMobile = typeof window !== 'undefined' && /Mobi|Android/i.test(window.na
 
 export const LocationPickerShare = () => {
     const toast = useToast()
+    const router = useRouter()
 
     const searchParams = useSearchParams()
     const lat = searchParams.get('lat')
@@ -106,30 +110,15 @@ export const LocationPickerShare = () => {
                 ))}
             </div>
 
-            <Link
-                href={navLink}
-                className="block text-sm text-blue-600 underline"
-                rel="noopener noreferrer"
-                target="_blank"
-            >
-                {navLink}
-            </Link>
-
             <div className="flex gap-2">
-                <button
-                    onClick={handleCopy}
-                    className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300"
-                >
-                    Copy link
-                </button>
+                <Link href={navLink} className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300">
+                    Open
+                </Link>
+
+                <Button onClick={handleCopy}>Copy link</Button>
 
                 {isMobile && typeof window.navigator.share === 'function' && (
-                    <button
-                        onClick={handleShare}
-                        className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300"
-                    >
-                        Share
-                    </button>
+                    <Button onClick={handleShare}>Share</Button>
                 )}
             </div>
         </div>

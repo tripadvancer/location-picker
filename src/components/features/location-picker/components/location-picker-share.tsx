@@ -2,11 +2,11 @@
 
 import { useState } from 'react'
 
-import { useCopyToClipboard } from 'usehooks-ts'
+import { CheckIcon } from 'lucide-react'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/utils/providers/toast-provider'
@@ -49,17 +49,15 @@ const isMobile = typeof window !== 'undefined' && /Mobi|Android/i.test(window.na
 
 export const LocationPickerShare = () => {
     const toast = useToast()
-    const router = useRouter()
-
     const searchParams = useSearchParams()
+
     const lat = searchParams.get('lat')
     const lng = searchParams.get('lng')
 
     const [navigator, setNavigator] = useState<Navigator>(Navigator.Waze)
+    const [copied, setCopied] = useState(false)
 
-    if (!lat || !lng) {
-        return
-    }
+    if (!lat || !lng) return null
 
     const selectedNav = NAVIGATORS.find(nav => nav.id === navigator)!
     const navLink = selectedNav.link(Number(parseFloat(lat).toFixed(6)), Number(parseFloat(lng).toFixed(6)))
@@ -68,7 +66,8 @@ export const LocationPickerShare = () => {
         if (typeof window !== 'undefined' && window.navigator.clipboard) {
             try {
                 await window.navigator.clipboard.writeText(navLink)
-                toast.success('Success', 'Link copied to clipboard!')
+                setCopied(true)
+                setTimeout(() => setCopied(false), 2000)
             } catch {
                 toast.error('Error', 'Failed to copy link')
             }
@@ -85,9 +84,14 @@ export const LocationPickerShare = () => {
                     url: navLink,
                 })
             } catch (err: any) {
-                if (err.name !== 'AbortError') {
-                    toast.error('Error', 'Failed to share link')
+                if (
+                    err?.name === 'AbortError' ||
+                    err?.name === 'DOMException' ||
+                    err?.message?.toLowerCase?.().includes('cancel')
+                ) {
+                    return
                 }
+                toast.error('Error', 'Failed to share link')
             }
         } else {
             handleCopy()
@@ -113,13 +117,26 @@ export const LocationPickerShare = () => {
             </div>
 
             <div className="flex gap-2">
-                <Link href={navLink} className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300">
+                <Link
+                    href={navLink}
+                    className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     Open
                 </Link>
 
-                <Button onClick={handleCopy}>Copy link</Button>
+                <Button onClick={handleCopy}>
+                    {copied ? (
+                        <span className="flex items-center gap-1 text-green-600">
+                            <CheckIcon className="h-4 w-4" /> Copied
+                        </span>
+                    ) : (
+                        'Copy link'
+                    )}
+                </Button>
 
-                {isMobile && typeof window.navigator.share === 'function' && (
+                {isMobile && typeof window !== 'undefined' && typeof window.navigator.share === 'function' && (
                     <Button onClick={handleShare}>Share</Button>
                 )}
             </div>

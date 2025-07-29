@@ -107,7 +107,7 @@ export const LocationPickerShare = () => {
 
     return (
         <div className="space-y-4">
-            <div className="text-sm">Choose a navigator:</div>
+            <div className="text-sm">Choose a navigator and click "Open" to launch the location:</div>
             <div className="flex w-full flex-wrap items-center gap-4">
                 {NAVIGATORS.map(nav => (
                     <div

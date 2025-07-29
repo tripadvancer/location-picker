@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import type { Metadata, Viewport } from 'next'
 
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 
 import { Footer } from '@/components/ui/footer'
@@ -60,6 +61,7 @@ export default function RootLayout({
                     <div className="grow py-4 sm:py-8">{children}</div>
                     <Footer />
                 </ToastProvider>
+                <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
             </body>
         </html>
     )

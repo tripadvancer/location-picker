@@ -5,6 +5,7 @@ interface EnvVariables {
     NEXT_PUBLIC_SITE_URL: string
     LOCATIONIQ_API_URL: string
     LOCATIONIQ_API_KEY: string
+    NEXT_PUBLIC_GA_MEASUREMENT_ID: string
 }
 
 const defaultValues: EnvVariables = {
@@ -12,6 +13,7 @@ const defaultValues: EnvVariables = {
     NEXT_PUBLIC_SITE_URL: 'http://localhost:3000',
     LOCATIONIQ_API_URL: 'SHOULD_BE_SET',
     LOCATIONIQ_API_KEY: 'SHOULD_BE_SET',
+    NEXT_PUBLIC_GA_MEASUREMENT_ID: 'SHOULD_BE_SET',
 }
 
 const envSchema = yup.object().shape(

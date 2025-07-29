@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.4.4",
     "@stadiamaps/api": "^8.0.1",
     "classnames": "^2.5.1",
     "lucide-react": "^0.533.0",

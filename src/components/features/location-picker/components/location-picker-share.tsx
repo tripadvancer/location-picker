@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { CheckIcon } from 'lucide-react'
 
@@ -56,6 +56,13 @@ export const LocationPickerShare = () => {
 
     const [navigator, setNavigator] = useState<Navigator>(Navigator.Waze)
     const [copied, setCopied] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setIsMobile(/Mobi|Android/i.test(window.navigator.userAgent))
+        }
+    }, [])
 
     if (!lat || !lng) return null
 

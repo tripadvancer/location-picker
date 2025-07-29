@@ -77,7 +77,7 @@ export const Search = () => {
     }
 
     return (
-        <div ref={ref} className="relative">
+        <div ref={ref} className="relative w-full">
             <SearchInput
                 value={value}
                 isLoading={isLoading}

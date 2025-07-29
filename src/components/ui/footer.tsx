@@ -6,7 +6,7 @@ export const Footer = () => {
     return (
         <footer className="flex flex-col justify-between border-t border-gray-300 py-4 text-sm sm:flex-row">
             <div>
-                &copy; 2025 Location Picker by{' '}
+                &copy; 2025{' '}
                 <Link
                     href="https://www.tripadvancer.com"
                     target="__blank"

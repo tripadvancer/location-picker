@@ -114,11 +114,12 @@ export const LocationPickerShare = () => {
                 {NAVIGATORS.map(nav => (
                     <div
                         key={nav.id}
-                        className={`flex h-16 flex-1 cursor-pointer items-center justify-center rounded-lg border transition sm:flex-[1_1_100%] md:size-16 md:flex-none ${navigator === nav.id ? 'border-orange-300 bg-orange-100' : 'border-transparent bg-orange-50'}`}
+                        className={`flex h-20 flex-1 cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border transition sm:flex-[1_1_100%] md:size-20 md:flex-none ${navigator === nav.id ? 'border-orange-300 bg-orange-100' : 'border-transparent bg-orange-50'}`}
                         title={nav.name}
                         onClick={() => setNavigator(nav.id)}
                     >
                         <Image src={nav.icon} width={32} height={32} alt={nav.name} />
+                        <div className="text-xs font-bold">{nav.name}</div>
                     </div>
                 ))}
             </div>

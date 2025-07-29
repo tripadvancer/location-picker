@@ -54,6 +54,47 @@ export const About = () => {
                     <li>Tap the Location Picker icon on&nbsp;your home screen to&nbsp;launch the app.</li>
                 </ol>
             </AboutExpander>
+
+            <AboutExpander title="Follow me">
+                <ul className="list-disc space-y-2 pl-6">
+                    <li>
+                        <Link
+                            href="https://x.com/oskolsky_maxim"
+                            className="text-blue-500 hover:underline"
+                            target="_blank"
+                        >
+                            X (Twitter)
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            href="https://www.linkedin.com/in/oskolsky"
+                            className="text-blue-500 hover:underline"
+                            target="_blank"
+                        >
+                            Linked In
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            href="https://www.tripadvancer.com/users/oskolsky"
+                            className="text-blue-500 hover:underline"
+                            target="_blank"
+                        >
+                            Tripadvancer
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            href="https://github.com/oskolsky"
+                            className="text-blue-500 hover:underline"
+                            target="_blank"
+                        >
+                            Github
+                        </Link>
+                    </li>
+                </ul>
+            </AboutExpander>
         </div>
     )
 }

@@ -45,8 +45,6 @@ const NAVIGATORS = [
     },
 ]
 
-const isMobile = typeof window !== 'undefined' && /Mobi|Android/i.test(window.navigator.userAgent)
-
 export const LocationPickerShare = () => {
     const toast = useToast()
     const searchParams = useSearchParams()

@@ -1,20 +1,18 @@
 import Link from 'next/link'
 
-import { FaqExpander } from './components/faq-expander'
+import { AboutExpander } from './components/about-expander'
 
-export const Faq = () => {
+export const About = () => {
     return (
         <div className="space-y-4">
-            <FaqExpander title="About">
-                <p>
-                    <strong>Location Picker</strong> is a convenient online tool for searching, converting, and sharing
-                    coordinates. You can search for places by address or coordinates, easily convert between DD and DMS
-                    formats, and open or share any location via Google Maps, Waze, Apple Maps, or Yandex.Maps. A simple,
-                    accurate, and free solution for anyone working with geolocation.
-                </p>
-            </FaqExpander>
+            <p className="mb-4">
+                <strong>Location Picker</strong> is a convenient online tool for searching, converting, and sharing
+                coordinates. You can search for places by address or coordinates, easily convert between DD and DMS
+                formats, and open or share any location via Google Maps, Waze, Apple Maps, or Yandex.Maps. A simple,
+                accurate, and free solution for anyone working with geolocation.
+            </p>
 
-            <FaqExpander title="Use in Full Screen Mode on iPhone and Android">
+            <AboutExpander title="Use in Full Screen Mode on iPhone and Android">
                 <p className="mb-4">
                     For the best experience, launch this app directly from your home screen to enjoy full-screen mode on
                     your device.
@@ -55,7 +53,7 @@ export const Faq = () => {
                     <li>Select "Add to Home Screen".</li>
                     <li>Tap the Location Picker icon on your home screen to launch the app.</li>
                 </ol>
-            </FaqExpander>
+            </AboutExpander>
         </div>
     )
 }

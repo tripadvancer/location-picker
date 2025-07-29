@@ -7,8 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Search } from '@/components/features/search/search'
 
 import { LocationPickerMap } from './components/location-picker-map'
-
-// import { LocationPickerShare } from './components/location-picker-share'
+import { LocationPickerShare } from './components/location-picker-share'
 
 export const LocationPicker = () => {
     const searchParams = useSearchParams()
@@ -36,7 +35,7 @@ export const LocationPicker = () => {
                 <Search />
             </div>
             <LocationPickerMap />
-            {/* <LocationPickerShare /> */}
+            <LocationPickerShare />
         </section>
     )
 }

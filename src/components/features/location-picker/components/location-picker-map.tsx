@@ -1,14 +1,10 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { GeolocateControl, MapRef, Map as ReactMapGl, ViewState } from 'react-map-gl/maplibre'
-
-import { MinusIcon, PlusIcon } from 'lucide-react'
+import { GeolocateControl, MapRef, NavigationControl, Map as ReactMapGl, ViewState } from 'react-map-gl/maplibre'
 
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
-
-import { LocationPickerMapControl } from './location-picker-map-control'
 
 export const LocationPickerMap = () => {
     const router = useRouter()
@@ -71,11 +67,6 @@ export const LocationPickerMap = () => {
         }
     }, [searchParams])
 
-    const handleZoom = useCallback((direction: 'in' | 'out') => {
-        const method = direction === 'in' ? 'zoomIn' : 'zoomOut'
-        mapRef.current?.[method]?.({ duration: 500 })
-    }, [])
-
     const handleMoveStart = useCallback(() => {
         setIsMapMoving(true)
     }, [])
@@ -118,16 +109,8 @@ export const LocationPickerMap = () => {
                 onMoveStart={handleMoveStart}
                 onMoveEnd={handleMoveEnd}
             >
-                <div className="absolute right-2 bottom-2 z-10 flex flex-col gap-y-1">
-                    <LocationPickerMapControl onClick={() => handleZoom('in')}>
-                        <PlusIcon size={16} />
-                    </LocationPickerMapControl>
-                    <LocationPickerMapControl onClick={() => handleZoom('out')}>
-                        <MinusIcon size={16} />
-                    </LocationPickerMapControl>
-
-                    <GeolocateControl />
-                </div>
+                <GeolocateControl />
+                <NavigationControl />
 
                 <Image
                     src="/images/pin-shadow.svg"

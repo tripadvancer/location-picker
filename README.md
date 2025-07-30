@@ -1,6 +1,6 @@
 # Location Picker
 
-A simple location picker component built with Next.js and MapLibre.
+A simple location picker built with Next.js and MapLibre.
 
 [https://location-picker.tripadvancer.com](https://location-picker.tripadvancer.com)
 

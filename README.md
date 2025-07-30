@@ -8,8 +8,6 @@ A simple location picker component built with Next.js and MapLibre.
 
 - Search for locations by address or coordinates (DD or DMS)
 - Select a location on the map
-- Display selected location coordinates DD and DMS
-- Display selected location address
 - Share selected location via Google Maps, Waze, Apple Maps, and Yandex Maps
 
 ## Tripadvancer

@@ -18,7 +18,7 @@ export const Header = () => {
                         <Search />
                     </Suspense>
                 </div>
-                <Link href="/about" className="text-gray-500 hover:text-black">
+                <Link href="/about" className="text-gray-500 hover:text-gray-950">
                     <InfoIcon />
                 </Link>
             </div>

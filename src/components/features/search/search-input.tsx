@@ -43,7 +43,7 @@ export const SearchInput = (props: SearchInputProps) => {
 
             {props.value && (
                 <div
-                    className="flex size-10 shrink-0 cursor-pointer items-center justify-center text-gray-300 hover:text-black"
+                    className="flex size-10 shrink-0 cursor-pointer items-center justify-center text-gray-300 hover:text-gray-950"
                     onClick={props.onClear}
                 >
                     <XIcon size={20} />

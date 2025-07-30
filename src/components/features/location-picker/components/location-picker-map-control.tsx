@@ -10,7 +10,7 @@ type LocationPickerMapControlProps = {
 export const LocationPickerMapControl = ({ children, onClick }: LocationPickerMapControlProps) => {
     return (
         <button
-            className="flex size-8 cursor-pointer items-center justify-center rounded-lg bg-white shadow-black"
+            className="flex size-8 cursor-pointer items-center justify-center rounded-lg bg-white shadow"
             onClick={onClick}
         >
             {children}

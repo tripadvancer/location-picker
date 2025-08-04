@@ -22,7 +22,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className="relative z-50 flex items-center justify-between gap-x-12 border-b border-gray-300 py-4">
+            <header className="sticky top-0 z-50 flex items-center justify-between gap-x-12 border-b border-gray-300 py-4">
                 <Logo />
 
                 <div className="flex flex-1 items-center gap-x-4">

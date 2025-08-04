@@ -49,7 +49,7 @@ export const CoordinateConverter = () => {
                 <p className="text-sm text-gray-500">
                     A&nbsp;simple tool to&nbsp;convert coordinates between&nbsp;DD (Decimal Degrees) and DMS (Degrees,
                     Minutes, Seconds) formats. Enter coordinates in&nbsp;either format, and the result will
-                    be&nbsp;automatically displayed in&nbsp;both.
+                    be&nbsp;displayed in&nbsp;both.
                 </p>
                 <p className="text-sm text-gray-500">
                     You can also click the &laquo;Get Address&raquo; button to&nbsp;retrieve an&nbsp;approximate

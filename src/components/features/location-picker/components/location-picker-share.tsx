@@ -127,7 +127,7 @@ export const LocationPickerShare = () => {
             <div className="flex gap-2">
                 <Link
                     href={navLink}
-                    className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300"
+                    className="flex h-10 cursor-pointer items-center justify-center rounded bg-gray-200 px-4 text-sm hover:bg-gray-300"
                     target="_blank"
                     rel="noopener noreferrer"
                 >

@@ -1,8 +1,4 @@
-import { ExternalLinkIcon } from 'lucide-react'
-
-import Link from 'next/link'
-
-import { ExternalLink } from './external-link'
+import { ExternalLink } from '@/components/ui/external-link'
 
 export const Footer = () => {
     return (

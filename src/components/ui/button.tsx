@@ -2,7 +2,11 @@
 
 import { ButtonHTMLAttributes } from 'react'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {}
+import classNames from 'classnames'
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    className?: string
+}
 
 export const Button = (props: ButtonProps) => {
     const { ...rest } = props
@@ -10,7 +14,10 @@ export const Button = (props: ButtonProps) => {
     return (
         <button
             {...rest}
-            className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-sm hover:bg-gray-300"
+            className={classNames(
+                'h-10 cursor-pointer rounded bg-gray-200 px-4 text-sm hover:bg-gray-300',
+                props.className,
+            )}
             onClick={props.onClick}
         >
             {props.children}

@@ -1,11 +1,11 @@
 import classNames from 'classnames'
-import type { Metadata, Viewport } from 'next'
+import type { Viewport } from 'next'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 
-import { Footer } from '@/components/ui/footer'
-import { Header } from '@/components/ui/header'
+import { Footer } from '@/components/features/layout/footer/footer'
+import { Header } from '@/components/features/layout/header/header'
 import { ToastProvider } from '@/utils/providers/toast-provider'
 
 import './globals.css'
@@ -21,32 +21,6 @@ export const viewport: Viewport = {
     userScalable: false,
 }
 
-// prettier-ignore
-export const metadata: Metadata = {
-    metadataBase: new URL('https://location-picker.tripadvancer.com'),
-    alternates: {
-        canonical: '/',
-    },
-    title: 'Location Picker - Search, Convert, and Share Locations',
-    description: 'Location Picker is a free online tool for searching, converting, and sharing locations by address or coordinates. Supports DD and DMS formats, and integration with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
-    appleWebApp: {
-        title: 'Location Picker',
-    },
-    openGraph: {
-        title: 'Location Picker - Search, Convert, and Share Locations',
-        description: 'Location Picker is a free online tool for searching, converting, and sharing locations by address or coordinates. Supports DD and DMS formats, and integration with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
-        type: 'website',
-        locale: 'ru_RU',
-        url: '/',
-        siteName: 'Location Picker',
-    },
-    twitter: {
-        title: 'Location Picker - Search, Convert, and Share Locations',
-        description: 'Location Picker is a free online tool for searching, converting, and sharing locations by address or coordinates. Supports DD and DMS formats, and integration with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
-        card: 'summary_large_image',
-    },
-}
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -57,7 +31,7 @@ export default function RootLayout({
             <head>
                 <link href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css" rel="stylesheet" />
             </head>
-            <body className="m-auto flex min-h-screen max-w-[1000px] flex-col px-4 antialiased sm:px-8">
+            <body className="relative m-auto flex min-h-screen max-w-[1000px] flex-col px-4 antialiased sm:px-8">
                 <ToastProvider>
                     <Header />
                     <div className="grow py-4 sm:py-8">{children}</div>

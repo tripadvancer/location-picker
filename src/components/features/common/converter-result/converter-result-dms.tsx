@@ -12,12 +12,12 @@ function toDMS(deg: number, isLat: boolean) {
     return `${degrees}°${minutes}'${seconds.toFixed(1)}"${direction}`
 }
 
-type CoordinateConverterResultDmsProps = {
+type ConverterResultDmsProps = {
     lat: string
     lng: string
 }
 
-export const CoordinateConverterResultDms = (props: CoordinateConverterResultDmsProps) => {
+export const ConverterResultDms = (props: ConverterResultDmsProps) => {
     const latNum = parseFloat(props.lat)
     const lngNum = parseFloat(props.lng)
 

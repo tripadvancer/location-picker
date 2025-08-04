@@ -2,13 +2,12 @@
 
 import { useState } from 'react'
 
+import { ConverterResult } from '@/components/features/common/converter-result/converter-result'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SearchType } from '@/utils/enums'
 import { detectSearchType } from '@/utils/helpers'
 import { convertDMStoDD, parseDDCoordinates } from '@/utils/helpers'
-
-import { CoordinateConverterResult } from './components/coordinate-converter-result'
 
 export const CoordinateConverter = () => {
     const [value, setValue] = useState('')
@@ -51,10 +50,6 @@ export const CoordinateConverter = () => {
                     Minutes, Seconds) formats. Enter coordinates in&nbsp;either format, and the result will
                     be&nbsp;displayed in&nbsp;both.
                 </p>
-                <p className="text-sm text-gray-500">
-                    You can also click the &laquo;Get Address&raquo; button to&nbsp;retrieve an&nbsp;approximate
-                    location based on&nbsp;the entered coordinates.
-                </p>
             </div>
 
             <div className="flex flex-col items-start gap-4 sm:w-2/3 sm:flex-row">
@@ -70,7 +65,7 @@ export const CoordinateConverter = () => {
                 </Button>
             </div>
 
-            <CoordinateConverterResult lat={lat} lng={lng} />
+            <ConverterResult lat={lat} lng={lng} />
         </section>
     )
 }

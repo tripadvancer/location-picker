@@ -6,6 +6,9 @@ import { About } from '@/components/features/about/about'
 export const metadata: Metadata = {
     title: 'About Location Picker',
     description: 'Learn more about Location Picker, a free online tool for searching, converting, and sharing locations by address or coordinates.',
+    alternates: {
+        canonical: '/about',
+    },
     openGraph: {
         title: 'About Location Picker',
     },

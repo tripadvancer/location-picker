@@ -52,7 +52,7 @@ export const Search = () => {
     const handleSelectItem = (item: SearchItem) => {
         if (item.coordinates) {
             const { lat, lng } = item.coordinates
-            const zoom = 12
+            const zoom = 15
 
             const currentParams = new URLSearchParams(searchParams.toString())
             currentParams.set('lat', lat.toString())

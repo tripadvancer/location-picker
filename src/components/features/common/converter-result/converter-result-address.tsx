@@ -8,12 +8,12 @@ import { useToast } from '@/utils/providers/toast-provider'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-type CoordinateConverterResultAddressProps = {
+type ConverterResultAddressProps = {
     lat: string
     lng: string
 }
 
-export const CoordinateConverterResultAddress = (props: CoordinateConverterResultAddressProps) => {
+export const ConverterResultAddress = (props: ConverterResultAddressProps) => {
     const toast = useToast()
 
     const [address, setAddress] = useState<string | null>(null)

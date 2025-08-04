@@ -5,7 +5,7 @@ type CoordinateConverterResultDdProps = {
     lng: string
 }
 
-export const CoordinateConverterResultDd = (props: CoordinateConverterResultDdProps) => {
+export const ConverterResultDd = (props: CoordinateConverterResultDdProps) => {
     return (
         <div>
             <strong>DD: </strong>

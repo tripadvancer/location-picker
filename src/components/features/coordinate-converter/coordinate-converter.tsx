@@ -47,13 +47,13 @@ export const CoordinateConverter = () => {
             <div className="space-y-2">
                 <h1 className="text-lg font-bold">GPS Coordinates Converter Online</h1>
                 <p className="text-sm text-gray-500">
-                    A simple tool to convert coordinates between DD (Decimal Degrees) and DMS (Degrees, Minutes,
-                    Seconds) formats. Enter coordinates in either format, and the result will be automatically displayed
-                    in both.
+                    A&nbsp;simple tool to&nbsp;convert coordinates between&nbsp;DD (Decimal Degrees) and DMS (Degrees,
+                    Minutes, Seconds) formats. Enter coordinates in&nbsp;either format, and the result will
+                    be&nbsp;automatically displayed in&nbsp;both.
                 </p>
                 <p className="text-sm text-gray-500">
-                    You can also click the "Get Address" button to retrieve an approximate location based on the entered
-                    coordinates.
+                    You can also click the &laquo;Get Address&raquo; button to&nbsp;retrieve an&nbsp;approximate
+                    location based on&nbsp;the entered coordinates.
                 </p>
             </div>
 

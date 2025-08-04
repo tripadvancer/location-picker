@@ -15,7 +15,7 @@ export const Button = (props: ButtonProps) => {
         <button
             {...rest}
             className={classNames(
-                'h-10 cursor-pointer rounded bg-gray-200 px-4 text-sm hover:bg-gray-300',
+                'h-10 cursor-pointer rounded-lg bg-gray-200 px-4 text-sm hover:bg-gray-300',
                 props.className,
             )}
             onClick={props.onClick}

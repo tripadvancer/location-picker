@@ -45,7 +45,7 @@ export const About = () => {
                     </p>
                     <p>
                         Thanks so&nbsp;much! I&rsquo;d really appreciate any{' '}
-                        <ExternalLink href="https://www.reddit.com/r/SideProject/comments/1mcn16n/location_picker/">
+                        <ExternalLink href="https://www.producthunt.com/products/location-picker">
                             feedback
                         </ExternalLink>
                         .

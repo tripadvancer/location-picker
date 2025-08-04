@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { InfoIcon } from 'lucide-react'
+import { CircleQuestionMarkIcon } from 'lucide-react'
 
 import Link from 'next/link'
 
@@ -19,7 +19,7 @@ export const Header = () => {
                     </Suspense>
                 </div>
                 <Link href="/about" className="text-gray-500 hover:text-gray-950">
-                    <InfoIcon />
+                    <CircleQuestionMarkIcon />
                 </Link>
             </div>
         </header>

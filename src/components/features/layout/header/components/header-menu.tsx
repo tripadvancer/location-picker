@@ -1,6 +1,7 @@
 'use client'
 
 import { ChevronRightIcon } from 'lucide-react'
+import { useScrollLock } from 'usehooks-ts'
 
 import Link from 'next/link'
 
@@ -9,6 +10,8 @@ type HeaderMenuProps = {
 }
 
 export const HeaderMenu = ({ closeMobileMenu }: HeaderMenuProps) => {
+    useScrollLock()
+
     return (
         <nav className="absolute top-0 right-0 bottom-0 left-0 z-40 mt-[61px] flex flex-col gap-y-4 bg-white p-4 sm:mt-[73px] sm:px-8">
             <Link href="/" className="flex items-center justify-between" onClick={closeMobileMenu}>

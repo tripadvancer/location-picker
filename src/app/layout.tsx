@@ -31,13 +31,15 @@ export default function RootLayout({
             <head>
                 <link href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css" rel="stylesheet" />
             </head>
-            <body className="relative m-auto flex min-h-screen max-w-[1000px] flex-col px-4 antialiased sm:px-8">
-                <ToastProvider>
-                    <Header />
-                    <div className="grow py-4 sm:py-8">{children}</div>
-                    <Footer />
-                </ToastProvider>
-                <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
+            <body className="h-full antialiased">
+                <div className="relative m-auto flex min-h-screen max-w-[1000px] flex-col bg-white px-4 sm:px-8">
+                    <ToastProvider>
+                        <Header />
+                        <div className="grow py-4 sm:py-8">{children}</div>
+                        <Footer />
+                    </ToastProvider>
+                    <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
+                </div>
             </body>
         </html>
     )

@@ -44,7 +44,7 @@ export const CoordinateConverter = () => {
     return (
         <section className="space-y-6">
             <div className="space-y-2">
-                <h1 className="text-lg font-bold">GPS Coordinates Converter Online</h1>
+                <h1 className="text-lg font-bold">GPS Coordinates Converter</h1>
                 <p className="text-sm text-gray-500">
                     A&nbsp;simple tool to&nbsp;convert coordinates between&nbsp;DD (Decimal Degrees) and DMS (Degrees,
                     Minutes, Seconds) formats. Enter coordinates in&nbsp;either format, and the result will

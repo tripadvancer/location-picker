@@ -35,7 +35,7 @@ export default function RootLayout({
                 <div className="relative m-auto flex min-h-screen max-w-[1000px] flex-col bg-white px-4 sm:px-8">
                     <ToastProvider>
                         <Header />
-                        <div className="grow py-4 sm:py-8">{children}</div>
+                        <main className="grow py-4 sm:py-8">{children}</main>
                         <Footer />
                     </ToastProvider>
                     <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />

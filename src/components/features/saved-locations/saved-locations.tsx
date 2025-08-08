@@ -37,8 +37,8 @@ export const SavedLocations = () => {
                 </p>
             </div>
 
-            <div className="flex items-center gap-x-2 rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">
-                <InfoIcon size={20} />
+            <div className="flex items-start gap-x-2 rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">
+                <InfoIcon size={20} className="shrink-0" />
                 We&nbsp;don&rsquo;t store any personal data. The saved locations are only stored in&nbsp;your
                 browser&rsquo;s local storage.
             </div>

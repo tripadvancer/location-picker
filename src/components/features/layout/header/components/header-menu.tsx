@@ -20,6 +20,12 @@ export const HeaderMenu = ({ closeMobileMenu }: HeaderMenuProps) => {
                     <ChevronRightIcon size={20} />
                 </div>
             </Link>
+            <Link href="/saved" className="flex items-center justify-between" onClick={closeMobileMenu}>
+                My Saved Locations
+                <div className="text-gray-700">
+                    <ChevronRightIcon size={20} />
+                </div>
+            </Link>
             <Link href="/coordinate-converter" className="flex items-center justify-between" onClick={closeMobileMenu}>
                 Coordinate Converter
                 <div className="text-gray-700">

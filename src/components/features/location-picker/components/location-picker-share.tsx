@@ -9,45 +9,15 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
+import { NAVIGATORS } from '@/utils/constants'
+import { addPlace } from '@/utils/db'
+import { Navigator } from '@/utils/enums'
 import { useToast } from '@/utils/providers/toast-provider'
-
-enum Navigator {
-    Waze = 'waze',
-    Google = 'google',
-    Yandex = 'yandex',
-    Apple = 'apple',
-}
-
-const NAVIGATORS = [
-    {
-        id: Navigator.Waze,
-        name: 'Waze',
-        icon: '/images/navigators/waze.png',
-        link: (lat: number, lng: number) => `https://waze.com/ul?ll=${lat},${lng}&navigate=yes`,
-    },
-    {
-        id: Navigator.Google,
-        name: 'Google',
-        icon: '/images/navigators/google.png',
-        link: (lat: number, lng: number) => `https://google.com/maps/dir//${lat},${lng}`,
-    },
-    {
-        id: Navigator.Yandex,
-        name: 'Yandex',
-        icon: '/images/navigators/yandex.png',
-        link: (lat: number, lng: number) => `https://maps.yandex.ru/?text=${lat}+${lng}`,
-    },
-    {
-        id: Navigator.Apple,
-        name: 'Apple',
-        icon: '/images/navigators/apple.png',
-        link: (lat: number, lng: number) => `https://maps.apple.com/?daddr=${lat},${lng}`,
-    },
-]
+import { Place } from '@/utils/types'
 
 export const LocationPickerShare = () => {
-    const toast = useToast()
     const searchParams = useSearchParams()
+    const toast = useToast()
 
     const lat = searchParams.get('lat')
     const lng = searchParams.get('lng')
@@ -82,26 +52,42 @@ export const LocationPickerShare = () => {
     }
 
     const handleShare = async () => {
-        if (typeof window !== 'undefined' && window.navigator.share) {
-            try {
-                await window.navigator.share({
-                    title: `Open in ${selectedNav.name}`,
-                    url: navLink,
-                })
-            } catch (err: unknown) {
-                if (
-                    err instanceof DOMException &&
-                    (err.name === 'AbortError' ||
-                        err.name === 'DOMException' ||
-                        err.message.toLowerCase().includes('cancel'))
-                ) {
-                    return
-                }
-
-                toast.error('Error', 'Failed to share link')
+        try {
+            await window.navigator.share({
+                title: `Open in ${selectedNav.name}`,
+                url: navLink,
+            })
+        } catch (err: unknown) {
+            if (
+                err instanceof DOMException &&
+                (err.name === 'AbortError' ||
+                    err.name === 'DOMException' ||
+                    err.message.toLowerCase().includes('cancel'))
+            ) {
+                return
             }
-        } else {
-            handleCopy()
+
+            toast.error('Error', 'Failed to share link')
+        }
+    }
+
+    const handleSave = async () => {
+        if (!lat || !lng) return
+
+        const name = prompt('Enter location name:')
+        if (!name || !name.trim()) return
+
+        try {
+            const place: Omit<Place, 'id'> = {
+                coordinates: { lat: Number(lat), lng: Number(lng) },
+                name: name.trim(),
+            }
+
+            await addPlace(place)
+            toast.success('Success', 'Location saved successfully')
+        } catch (err) {
+            console.error(err)
+            toast.error('Error', 'Failed to save location')
         }
     }
 
@@ -147,6 +133,8 @@ export const LocationPickerShare = () => {
                 {isMobile && typeof window !== 'undefined' && typeof window.navigator.share === 'function' && (
                     <Button onClick={handleShare}>Share</Button>
                 )}
+
+                <Button onClick={handleSave}>Save</Button>
             </div>
         </div>
     )

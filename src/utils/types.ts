@@ -8,3 +8,9 @@ export type SearchItem = {
     description: string
     coordinates: Coordinates
 }
+
+export interface Place {
+    id: number
+    coordinates: Coordinates
+    name: string
+}

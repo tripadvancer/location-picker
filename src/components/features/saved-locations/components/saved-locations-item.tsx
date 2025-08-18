@@ -34,7 +34,7 @@ export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemPr
     return (
         <li
             key={`place-${place.id}`}
-            className="flex items-center justify-between gap-x-4 rounded-lg bg-gray-50 p-4 text-sm"
+            className="flex items-center justify-between gap-x-4 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm"
         >
             <Link href={`/?lat=${place.coordinates.lat}&lng=${place.coordinates.lng}&zoom=15`} className="font-bold">
                 {place.name}

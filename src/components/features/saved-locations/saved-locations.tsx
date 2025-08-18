@@ -43,11 +43,15 @@ export const SavedLocations = () => {
                 browser&rsquo;s local storage.
             </div>
 
-            <ul className="space-y-2">
-                {places.map(place => (
-                    <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
-                ))}
-            </ul>
+            {places.length > 0 && (
+                <ul className="space-y-2">
+                    {places.map(place => (
+                        <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
+                    ))}
+                </ul>
+            )}
+
+            {places.length === 0 && <div className="text-sm text-gray-500">You have no saved locations yet.</div>}
         </section>
     )
 }

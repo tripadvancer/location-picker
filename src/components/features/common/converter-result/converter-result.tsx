@@ -13,7 +13,7 @@ export const ConverterResult = (props: ConverterResultProps) => {
     }
 
     return (
-        <div className="space-y-1 rounded-lg bg-gray-50 p-4 text-sm">
+        <div className="space-y-1 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm">
             <ConverterResultDd lat={props.lat} lng={props.lng} />
             <ConverterResultDms lat={props.lat} lng={props.lng} />
             <ConverterResultAddress lat={props.lat} lng={props.lng} />

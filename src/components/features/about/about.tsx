@@ -46,7 +46,7 @@ export const About = () => {
 
             <AboutExpander title="Saved Locations">
                 <p>
-                    Now you can save your favorite locations directly in&nbsp;the app and easily access them on&nbsp;the
+                    You can save your favorite locations directly in&nbsp;the app and easily access them on&nbsp;the
                     &quot;
                     <Link href="/saved" className="text-blue-500 hover:text-blue-600">
                         My Saved Locations

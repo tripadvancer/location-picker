@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useState } from 'react'
 
-import { InfoIcon, SearchIcon } from 'lucide-react'
+import { InfoIcon } from 'lucide-react'
 
 import Link from 'next/link'
 
+import { SearchInput } from '@/components/ui/search-input'
 import { getPlaces } from '@/utils/db'
 import { Place } from '@/utils/types'
 
@@ -14,20 +15,25 @@ import { SavedLocationsItem } from './components/saved-locations-item'
 export const SavedLocations = () => {
     const [places, setPlaces] = useState<Place[]>([])
     const [search, setSearch] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         loadPlaces()
     }, [])
 
     const loadPlaces = async () => {
+        setIsLoading(true)
         const savedPlaces = await getPlaces()
         setPlaces(savedPlaces)
+        setIsLoading(false)
     }
 
     const filteredPlaces = useMemo(() => {
         if (!search.trim()) return places
         return places.filter(place => place.name.toLowerCase().includes(search.toLowerCase()))
     }, [places, search])
+
+    const handleClear = () => setSearch('')
 
     return (
         <section className="space-y-6">
@@ -50,16 +56,15 @@ export const SavedLocations = () => {
             </div>
 
             {places.length > 0 && (
-                <div className="relative">
-                    <SearchIcon className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" size={18} />
-                    <input
-                        type="text"
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                        placeholder="Search by name..."
-                        className="w-full rounded-lg border border-gray-200 py-3 pr-3 pl-10 text-sm focus:outline-none"
-                    />
-                </div>
+                <SearchInput
+                    value={search}
+                    placeholder="Search by name..."
+                    variant="white"
+                    isLoading={isLoading}
+                    onChange={setSearch}
+                    onClick={() => {}}
+                    onClear={handleClear}
+                />
             )}
 
             {filteredPlaces.length > 0 && (

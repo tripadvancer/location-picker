@@ -69,7 +69,7 @@ export const SavedLocations = () => {
 
             {filteredPlaces.length > 0 && (
                 <ul className="space-y-2">
-                    {filteredPlaces.map(place => (
+                    {[...filteredPlaces].reverse().map(place => (
                         <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
                     ))}
                 </ul>

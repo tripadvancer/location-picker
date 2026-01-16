@@ -29,10 +29,14 @@ export default function RootLayout({
     return (
         <html lang="en" className={classNames('bg-[#e8f4ff]', roboto.className)}>
             <head>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="default" />
                 <link href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+                <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+                <link rel="apple-touch-icon" href="/icons/icon-192.png" />
             </head>
             <body className="h-full antialiased">
-                <div className="relative m-auto flex min-h-screen max-w-[1000px] flex-col bg-white px-4 sm:px-8">
+                <div className="relative m-auto flex min-h-screen max-w-250 flex-col bg-white px-4 sm:px-8">
                     <ToastProvider>
                         <Header />
                         <main className="grow py-4 sm:py-8">{children}</main>

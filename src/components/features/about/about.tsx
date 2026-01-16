@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import InstallPWAButton from '@/components/features/layout/install-pwa-button/install-pwa-button'
 import { ExternalLink } from '@/components/ui/external-link'
 
 import { AboutExpander } from './components/about-expander'
@@ -101,7 +102,7 @@ export const About = () => {
                         </ol>
 
                         <h4 className="mb-2 font-bold">How to Install on Android</h4>
-                        <ol className="list-decimal space-y-2 pl-6">
+                        <ol className="mb-6 list-decimal space-y-2 pl-6">
                             <li>
                                 Open Safari and go to{' '}
                                 <ExternalLink href="https://location-picker.tripadvancer.com">
@@ -113,6 +114,8 @@ export const About = () => {
                             <li>Select &laquo;Add to&nbsp;Home Screen&raquo;.</li>
                             <li>Tap the Location Picker icon on&nbsp;your home screen to&nbsp;launch the app.</li>
                         </ol>
+
+                        <p className="mb-2 font-bold">Or click button in the footer to install the PWA</p>
                     </div>
                 </div>
             </AboutExpander>

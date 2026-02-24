@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import InstallPWAButton from '@/components/features/layout/install-pwa-button/install-pwa-button'
 import { ExternalLink } from '@/components/ui/external-link'
 
 import { AboutExpander } from './components/about-expander'
@@ -22,26 +23,17 @@ export const About = () => {
                 <div className="space-y-4">
                     <p>Hey everyone!</p>
                     <p>
-                        So, it&nbsp;turns out my&nbsp;wife and&nbsp;I spend a&nbsp;lot of&nbsp;time driving and
-                        traveling through different countries. Each time, we&nbsp;have to&nbsp;use different navigation
-                        apps because every country has its own favorites that work best there. For&nbsp;me, switching
-                        between apps is&nbsp;easy, but for my&nbsp;wife&mdash;who&rsquo;s not really into tech&mdash;it
-                        can be&nbsp;tricky. She usually asks me&nbsp;to&nbsp;send her the destination
-                        in&nbsp;a&nbsp;message&nbsp;&mdash;&nbsp;not just the location, but a&nbsp;link that opens the
-                        right navigation app with the route ready to&nbsp;go.
+                        My&nbsp;wife and&nbsp;I spend a&nbsp;lot of&nbsp;time driving and traveling through different
+                        countries. Every country has its own favorite navigation apps that work best there. For&nbsp;me,
+                        switching between apps is&nbsp;easy, but for my&nbsp;wife&mdash;who&rsquo;s not really into
+                        tech&mdash;it can be&nbsp;tricky. She usually asks me to&nbsp;send her the destination
+                        in&nbsp;a&nbsp;message&mdash;not just the location, but a&nbsp;link that opens the right
+                        navigation app with the route ready to&nbsp;go.
                     </p>
                     <p>
-                        I&nbsp;used to&nbsp;do&nbsp;this through the web versions of&nbsp;navigation apps, but
-                        that&rsquo;s not always convenient or&nbsp;quick.
-                    </p>
-                    <p>
-                        So, I&nbsp;quickly put together a&nbsp;small app that helps find the right spot, adjust
-                        it&nbsp;if&nbsp;needed, and generate a&nbsp;link for the navigation app you want. I&rsquo;ve
-                        been using it&nbsp;for about six months now, and it&rsquo;s super handy!
-                    </p>
-                    <p>
-                        I&nbsp;wanted to&nbsp;share it&nbsp;with you all&mdash;maybe someone else will find
-                        it&nbsp;useful too.
+                        To&nbsp;make this easier, I&nbsp;created this small app that helps find the right spot, adjust
+                        it&nbsp;if needed, and generate a&nbsp;link for the navigation app you want. I&nbsp;hope you
+                        find it&nbsp;useful too!
                     </p>
                     <p>
                         Thanks so&nbsp;much! I&rsquo;d really appreciate any{' '}
@@ -51,6 +43,30 @@ export const About = () => {
                         .
                     </p>
                 </div>
+            </AboutExpander>
+
+            <AboutExpander title="Saved Locations">
+                <p>
+                    You can save your favorite locations directly in&nbsp;the app and easily access them on&nbsp;the
+                    &quot;
+                    <Link href="/saved" className="text-blue-500 hover:text-blue-600">
+                        My Saved Locations
+                    </Link>
+                    &quot; page. All saved data is&nbsp;stored locally on&nbsp;your device, so&nbsp;your information
+                    stays private and available even without an&nbsp;internet connection.
+                </p>
+            </AboutExpander>
+
+            <AboutExpander title="Coordinate Converter">
+                <p>
+                    Easily{' '}
+                    <Link href="/coordinate-converter" className="text-blue-500 hover:text-blue-600">
+                        convert coordinates
+                    </Link>{' '}
+                    between Decimal Degrees (DD) and Degrees, Minutes, Seconds (DMS) formats. Just enter coordinates in
+                    one format, and the tool instantly shows you the equivalent in&nbsp;the other, making it&nbsp;simple
+                    to&nbsp;work with different coordinate systems.
+                </p>
             </AboutExpander>
 
             <AboutExpander title="Use in Full Screen Mode on iPhone and Android">
@@ -86,7 +102,7 @@ export const About = () => {
                         </ol>
 
                         <h4 className="mb-2 font-bold">How to Install on Android</h4>
-                        <ol className="list-decimal space-y-2 pl-6">
+                        <ol className="mb-6 list-decimal space-y-2 pl-6">
                             <li>
                                 Open Safari and go to{' '}
                                 <ExternalLink href="https://location-picker.tripadvancer.com">
@@ -98,6 +114,8 @@ export const About = () => {
                             <li>Select &laquo;Add to&nbsp;Home Screen&raquo;.</li>
                             <li>Tap the Location Picker icon on&nbsp;your home screen to&nbsp;launch the app.</li>
                         </ol>
+
+                        <p className="mb-2 font-bold">Or click button in the footer to install the PWA</p>
                     </div>
                 </div>
             </AboutExpander>

@@ -8,9 +8,8 @@ import { useDebounceValue, useOnClickOutside } from 'usehooks-ts'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
+import { SearchInput } from '@/components/ui/search-input'
 import { SearchItem } from '@/utils/types'
-
-import { SearchInput } from './search-input'
 
 type SearchResponse = {
     items: SearchItem[]
@@ -52,7 +51,7 @@ export const Search = () => {
     const handleSelectItem = (item: SearchItem) => {
         if (item.coordinates) {
             const { lat, lng } = item.coordinates
-            const zoom = 12
+            const zoom = 15
 
             const currentParams = new URLSearchParams(searchParams.toString())
             currentParams.set('lat', lat.toString())
@@ -80,6 +79,7 @@ export const Search = () => {
         <div ref={ref} className="relative w-full">
             <SearchInput
                 value={value}
+                placeholder="Enter location or coordinates"
                 isLoading={isLoading}
                 onChange={setValue}
                 onClear={handleInputClear}

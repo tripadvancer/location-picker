@@ -4,22 +4,25 @@ import { useEffect, useState } from 'react'
 
 import useSWRMutation from 'swr/mutation'
 
-import { useSearchParams } from 'next/navigation'
+import { useToast } from '@/utils/providers/toast-provider'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-export const LocationPickerResultAddress = () => {
-    const searchParams = useSearchParams()
-    const lat = searchParams.get('lat')
-    const lng = searchParams.get('lng')
+type ConverterResultAddressProps = {
+    lat: string
+    lng: string
+}
+
+export const ConverterResultAddress = (props: ConverterResultAddressProps) => {
+    const toast = useToast()
 
     const [address, setAddress] = useState<string | null>(null)
     const [lastCoords, setLastCoords] = useState<string | null>(null)
 
-    const url = lat && lng ? `/api/reverse-geocode?lat=${lat}&lon=${lng}` : null
+    const url = props.lat && props.lng ? `/api/reverse-geocode?lat=${props.lat}&lon=${props.lng}` : null
     const { trigger, isMutating, error } = useSWRMutation(url, fetcher)
 
-    const currentCoords = lat && lng ? `${lat},${lng}` : null
+    const currentCoords = props.lat && props.lng ? `${props.lat},${props.lng}` : null
 
     useEffect(() => {
         if (currentCoords !== lastCoords) {
@@ -35,8 +38,8 @@ export const LocationPickerResultAddress = () => {
             if (result?.address) {
                 setAddress(result.address)
             }
-        } catch (err) {
-            console.error('Error fetching address:', err)
+        } catch {
+            toast.error('Error', 'Failed to fetch address')
             setAddress(null)
         }
     }

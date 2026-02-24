@@ -1,7 +1,5 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
-
 function toDMS(deg: number, isLat: boolean) {
     const absolute = Math.abs(deg)
     const degrees = Math.floor(absolute)
@@ -14,17 +12,14 @@ function toDMS(deg: number, isLat: boolean) {
     return `${degrees}°${minutes}'${seconds.toFixed(1)}"${direction}`
 }
 
-export const LocationPickerResultDms = () => {
-    const searchParams = useSearchParams()
-    const lat = searchParams.get('lat')
-    const lng = searchParams.get('lng')
+type ConverterResultDmsProps = {
+    lat: string
+    lng: string
+}
 
-    if (!lat || !lng) {
-        return null
-    }
-
-    const latNum = parseFloat(lat)
-    const lngNum = parseFloat(lng)
+export const ConverterResultDms = (props: ConverterResultDmsProps) => {
+    const latNum = parseFloat(props.lat)
+    const lngNum = parseFloat(props.lng)
 
     if (isNaN(latNum) || isNaN(lngNum)) {
         return null

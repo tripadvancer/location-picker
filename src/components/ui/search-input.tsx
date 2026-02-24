@@ -6,6 +6,8 @@ import { RadarIcon, SearchIcon, XIcon } from 'lucide-react'
 
 type SearchInputProps = {
     value: string
+    placeholder: string
+    variant?: 'gray' | 'white'
     isLoading: boolean
     onChange: (value: string) => void
     onClick: () => void
@@ -17,8 +19,11 @@ export const SearchInput = (props: SearchInputProps) => {
         props.onChange(e.target.value)
     }
 
+    const baseClasses = 'flex h-10 items-center rounded-lg'
+    const variantClasses = props.variant === 'white' ? 'bg-white border border-gray-200' : 'bg-gray-100' // default gray
+
     return (
-        <div className="flex h-10 items-center rounded-lg bg-gray-100">
+        <div className={`${baseClasses} ${variantClasses}`}>
             <div className="flex size-10 shrink-0 items-center justify-center">
                 {props.isLoading ? (
                     <RadarIcon className="animate-spin" size={20} strokeWidth={1.5} />
@@ -35,7 +40,7 @@ export const SearchInput = (props: SearchInputProps) => {
                     autoComplete="off"
                     autoFocus
                     className="h-full w-full bg-transparent text-sm placeholder:text-gray-600 focus:outline-none"
-                    placeholder="Enter location or coordinates"
+                    placeholder={props.placeholder}
                     onClick={props.onClick}
                     onChange={handleChange}
                 />

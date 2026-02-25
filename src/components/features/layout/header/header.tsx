@@ -23,7 +23,7 @@ export const Header = () => {
     return (
         <>
             <header className="z-40 flex items-center justify-between gap-x-12 border-b border-gray-300 bg-white py-4">
-                <Logo />
+                <Logo onClick={closeMobileMenu} />
 
                 <div className="flex flex-1 items-center gap-x-4">
                     <div className="hidden flex-1 md:block">

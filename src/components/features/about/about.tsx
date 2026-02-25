@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import InstallPWAButton from '@/components/features/layout/install-pwa-button/install-pwa-button'
 import { ExternalLink } from '@/components/ui/external-link'
 
 import { AboutExpander } from './components/about-expander'
@@ -91,9 +90,12 @@ export const About = () => {
                         <ol className="mb-6 list-decimal space-y-2 pl-6">
                             <li>
                                 Open Safari and go to{' '}
-                                <ExternalLink href="https://location-picker.tripadvancer.com">
+                                <Link
+                                    href="https://location-picker.tripadvancer.com"
+                                    className="text-blue-500 hover:text-blue-600"
+                                >
                                     https://location-picker.tripadvancer.com
-                                </ExternalLink>
+                                </Link>
                                 .
                             </li>
                             <li>Tap the &laquo;Share&raquo; button.</li>
@@ -105,9 +107,12 @@ export const About = () => {
                         <ol className="mb-6 list-decimal space-y-2 pl-6">
                             <li>
                                 Open Safari and go to{' '}
-                                <ExternalLink href="https://location-picker.tripadvancer.com">
+                                <Link
+                                    href="https://location-picker.tripadvancer.com"
+                                    className="text-blue-500 hover:text-blue-600"
+                                >
                                     https://location-picker.tripadvancer.com
-                                </ExternalLink>
+                                </Link>
                                 .
                             </li>
                             <li>Tap the menu button (three dots) in&nbsp;the top-right corner.</li>

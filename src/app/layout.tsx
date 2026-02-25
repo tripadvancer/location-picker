@@ -40,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                     <ToastProvider>
                         <Header />
 
-                        <main className="flex w-full grow py-4 pb-20 md:block md:py-8 md:pb-0">{children}</main>
+                        <main className="flex w-full grow py-4 pb-22 md:block md:py-8 md:pb-0">{children}</main>
 
                         <div className="hidden md:block">
                             <Footer />

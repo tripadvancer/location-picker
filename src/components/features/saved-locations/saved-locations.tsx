@@ -2,10 +2,6 @@
 
 import { useEffect, useMemo, useState } from 'react'
 
-import { InfoIcon } from 'lucide-react'
-
-import Link from 'next/link'
-
 import { SearchInput } from '@/components/ui/search-input'
 import { getPlaces } from '@/utils/db'
 import { Place } from '@/utils/types'
@@ -36,25 +32,7 @@ export const SavedLocations = () => {
     const handleClear = () => setSearch('')
 
     return (
-        <section className="w-full space-y-6">
-            <div className="space-y-2">
-                <h1 className="text-lg font-bold">My Saved Locations</h1>
-                <p className="text-sm text-gray-500">
-                    All your saved locations are shown here. To&nbsp;save a&nbsp;new location, use the
-                    &lsquo;Save&rsquo; button on&nbsp;the{' '}
-                    <Link href="/" className="text-blue-500 hover:text-blue-600">
-                        map
-                    </Link>
-                    .
-                </p>
-            </div>
-
-            <div className="flex items-start gap-x-2 rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">
-                <InfoIcon size={20} className="shrink-0" />
-                We&nbsp;don&rsquo;t store any personal data. The saved locations are only stored in&nbsp;your
-                browser&rsquo;s local storage.
-            </div>
-
+        <section className="w-full space-y-4">
             {places.length > 0 && (
                 <SearchInput
                     value={search}

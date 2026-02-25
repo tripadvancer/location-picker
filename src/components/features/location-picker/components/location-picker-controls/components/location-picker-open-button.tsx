@@ -10,7 +10,7 @@ export const LocationPickerOpenButton = ({ navLink }: LocationPickerOpenButtonPr
     return (
         <Link
             href={navLink}
-            className="flex h-12 cursor-pointer items-center justify-center rounded-lg bg-gray-200 px-4 text-sm hover:bg-gray-300 md:h-10"
+            className="flex h-12 cursor-pointer items-center justify-center rounded-lg bg-gray-200 px-4 text-sm hover:bg-gray-300"
             target="_blank"
             rel="noopener noreferrer"
         >

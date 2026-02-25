@@ -1,44 +1,43 @@
 'use client'
 
-import { Suspense, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-import { MenuIcon, XIcon } from 'lucide-react'
-
-import { Search } from '@/components/features/search/search'
 import { Logo } from '@/components/ui/logo'
 
-import { HeaderMenu } from './components/header-menu'
+const NAV_ITEMS = [
+    { href: '/saved', label: 'Saved' },
+    { href: '/coordinate-converter', label: 'Converter' },
+    { href: '/about', label: 'About' },
+]
 
 export const Header = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const openMobileMenu = () => {
-        setIsOpen(true)
-    }
-
-    const closeMobileMenu = () => {
-        setIsOpen(false)
-    }
+    const pathname = usePathname()
 
     return (
-        <>
-            <header className="sticky top-0 z-40 flex items-center justify-between gap-x-12 border-b border-gray-300 bg-white py-4">
-                <Logo onClick={closeMobileMenu} />
+        <header className="sticky top-0 z-40 flex items-center justify-between gap-x-8 border-b border-gray-300 bg-white py-4">
+            <Logo />
 
-                <div className="flex flex-1 items-center gap-x-4">
-                    <div className="hidden flex-1 md:block">
-                        <Suspense>
-                            <Search />
-                        </Suspense>
-                    </div>
+            <nav className="hidden items-center gap-x-6 md:flex">
+                {NAV_ITEMS.map(item => {
+                    const isActive = pathname === item.href
+                    return (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`relative py-1 text-sm font-medium transition-colors ${
+                                isActive ? 'text-orange-500' : 'text-gray-700 hover:text-gray-950'
+                            }`}
+                        >
+                            {item.label}
 
-                    <div className="hidden cursor-pointer text-gray-500 hover:text-gray-950 md:block">
-                        {isOpen ? <XIcon onClick={closeMobileMenu} /> : <MenuIcon onClick={openMobileMenu} />}
-                    </div>
-                </div>
-            </header>
-
-            {isOpen && <HeaderMenu closeMobileMenu={closeMobileMenu} />}
-        </>
+                            {isActive && (
+                                <span className="absolute right-0 bottom-0 left-0 h-0.5 rounded-full bg-orange-500" />
+                            )}
+                        </Link>
+                    )
+                })}
+            </nav>
+        </header>
     )
 }

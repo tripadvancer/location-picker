@@ -1,3 +1,5 @@
+import { InfoIcon } from 'lucide-react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -17,6 +19,12 @@ export const About = () => {
                 <br />
                 A&nbsp;simple, accurate, and free solution for anyone working with geolocation.
             </p>
+
+            <div className="flex items-start gap-x-2 rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">
+                <InfoIcon size={20} className="hidden shrink-0 md:block" />
+                We&nbsp;don&rsquo;t store any personal data. The saved locations are only stored in&nbsp;your
+                browser&rsquo;s local storage.
+            </div>
 
             <AboutExpander title="Intro">
                 <div className="space-y-4">

@@ -31,8 +31,8 @@ export const LocationPicker = () => {
     }, [lat, lng, zoom, searchParams, router])
 
     return (
-        <section className="flex w-full flex-col gap-y-4 md:gap-y-8">
-            <div className="block flex-0 md:hidden">
+        <section className="flex w-full flex-col gap-y-4">
+            <div className="flex-0">
                 <Search />
             </div>
             <div className="flex-1">

@@ -19,7 +19,7 @@ export const SearchInput = (props: SearchInputProps) => {
         props.onChange(e.target.value)
     }
 
-    const baseClasses = 'flex md:h-10 h-12 items-center rounded-lg'
+    const baseClasses = 'flex h-12 items-center rounded-lg'
     const variantClasses = props.variant === 'white' ? 'bg-white border border-gray-200' : 'bg-gray-100' // default gray
 
     return (

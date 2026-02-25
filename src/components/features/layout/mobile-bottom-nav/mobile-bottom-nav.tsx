@@ -27,7 +27,7 @@ export const MobileBottomNav = () => {
                         key={item.href}
                         href={item.href}
                         className={classNames(
-                            'flex flex-1 flex-col items-center justify-center gap-1 py-3 text-xs transition-colors',
+                            'flex flex-1 flex-col items-center justify-center gap-1 pt-3 pb-5 text-xs transition-colors',
                             isActive ? 'text-orange-500' : 'text-gray-500 hover:text-gray-950',
                         )}
                     >

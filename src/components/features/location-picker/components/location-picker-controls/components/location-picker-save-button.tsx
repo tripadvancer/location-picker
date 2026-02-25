@@ -5,11 +5,11 @@ import { addPlace } from '@/utils/db'
 import { useToast } from '@/utils/providers/toast-provider'
 import { Coordinates, Place } from '@/utils/types'
 
-type LocationPickerShareSaveButtonProps = {
+type LocationPickerSaveButtonProps = {
     coordinates: Coordinates
 }
 
-export const LocationPickerShareSaveButton = ({ coordinates }: LocationPickerShareSaveButtonProps) => {
+export const LocationPickerSaveButton = ({ coordinates }: LocationPickerSaveButtonProps) => {
     const toast = useToast()
 
     const handleSave = async () => {

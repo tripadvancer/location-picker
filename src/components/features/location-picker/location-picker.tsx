@@ -7,8 +7,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Search } from '@/components/features/search/search'
 
 import { ConverterResult } from '../common/converter-result/converter-result'
+import { LocationPickerControls } from './components/location-picker-controls/location-picker-controls'
 import { LocationPickerMap } from './components/location-picker-map'
-import { LocationPickerControls } from './components/location-picker-share/location-picker-controls'
 
 export const LocationPicker = () => {
     const searchParams = useSearchParams()

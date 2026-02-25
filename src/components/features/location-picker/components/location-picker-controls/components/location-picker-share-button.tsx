@@ -3,11 +3,11 @@
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/utils/providers/toast-provider'
 
-type LocationPickerShareShareButtonProps = {
+type LocationPickerShareButtonProps = {
     navLink: string
 }
 
-export const LocationPickerShareShareButton = ({ navLink }: LocationPickerShareShareButtonProps) => {
+export const LocationPickerShareButton = ({ navLink }: LocationPickerShareButtonProps) => {
     const toast = useToast()
 
     const handleShare = async () => {

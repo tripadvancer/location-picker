@@ -17,19 +17,23 @@ export async function initDB() {
     return dbPromise
 }
 
-export async function addPlace(place: Omit<Place, 'id'>) {
+export async function getPlaces(): Promise<Place[]> {
     const db = await initDB()
-    await db.add('places', { ...place, pinned: place.pinned ?? false })
+    return await db.getAll('places')
+}
+
+export async function addPlace(place: Omit<Place, 'id' | 'createdAt' | 'pinnedAt'>) {
+    const db = await initDB()
+    await db.add('places', {
+        ...place,
+        pinned: false,
+        createdAt: Date.now(),
+    })
 }
 
 export async function updatePlace(place: Place) {
     const db = await initDB()
     await db.put('places', place)
-}
-
-export async function getPlaces(): Promise<Place[]> {
-    const db = await initDB()
-    return await db.getAll('places')
 }
 
 export async function deletePlace(id: number) {

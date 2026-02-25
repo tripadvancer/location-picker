@@ -1,8 +1,8 @@
-import { TrashIcon } from 'lucide-react'
+import { PinIcon, TrashIcon } from 'lucide-react'
 
 import Link from 'next/link'
 
-import { deletePlace } from '@/utils/db'
+import { deletePlace, updatePlace } from '@/utils/db'
 import { useToast } from '@/utils/providers/toast-provider'
 import { Place } from '@/utils/types'
 
@@ -13,6 +13,18 @@ type SavedLocationsItemProps = {
 
 export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemProps) => {
     const toast = useToast()
+
+    const handleTogglePin = async () => {
+        const isPinned = !!place.pinned
+
+        await updatePlace({
+            ...place,
+            pinned: !isPinned,
+            pinnedAt: !isPinned ? Date.now() : undefined,
+        })
+
+        onLoadPlaces()
+    }
 
     const handleDelete = async (id?: number) => {
         if (id !== undefined) {
@@ -34,11 +46,16 @@ export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemPr
                 {place.name}
             </Link>
 
-            <div
-                className="pointer-none: cursor-pointer text-gray-400 hover:text-red-500"
-                onClick={() => handleDelete(place.id)}
-            >
-                <TrashIcon size={20} />
+            <div className="flex items-center gap-x-3">
+                <div className="cursor-pointer" onClick={handleTogglePin} title={place.pinned ? 'Unpin' : 'Pin'}>
+                    <PinIcon size={18} color={place.pinned ? '#000000' : '#9CA3AF'} />
+                </div>
+                <div
+                    className="pointer-none: cursor-pointer text-gray-400 hover:text-red-500"
+                    onClick={() => handleDelete(place.id)}
+                >
+                    <TrashIcon size={20} />
+                </div>
             </div>
         </li>
     )

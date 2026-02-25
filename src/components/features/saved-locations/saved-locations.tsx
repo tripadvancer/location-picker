@@ -24,9 +24,20 @@ export const SavedLocations = () => {
         setIsLoading(false)
     }
 
-    const filteredPlaces = useMemo(() => {
-        if (!search.trim()) return places
-        return places.filter(place => place.name.toLowerCase().includes(search.toLowerCase()))
+    const { pinnedPlaces, regularPlaces } = useMemo(() => {
+        let result = [...places]
+
+        if (search.trim()) {
+            result = result.filter(place => place.name.toLowerCase().includes(search.toLowerCase()))
+        }
+
+        const pinned = result.filter(place => place.pinned).sort((a, b) => (b.pinnedAt ?? 0) - (a.pinnedAt ?? 0))
+        const regular = result.filter(place => !place.pinned).sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0))
+
+        return {
+            pinnedPlaces: pinned,
+            regularPlaces: regular,
+        }
     }, [places, search])
 
     const handleClear = () => setSearch('')
@@ -45,15 +56,28 @@ export const SavedLocations = () => {
                 />
             )}
 
-            {filteredPlaces.length > 0 && (
-                <ul className="space-y-2">
-                    {[...filteredPlaces].reverse().map(place => (
-                        <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
-                    ))}
-                </ul>
-            )}
+            <ul className="space-y-2">
+                {pinnedPlaces.length > 0 && (
+                    <>
+                        {pinnedPlaces.map(place => (
+                            <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
+                        ))}
 
-            {places.length > 0 && filteredPlaces.length === 0 && (
+                        <div className="flex items-center gap-x-2">
+                            <div className="h-px flex-1 bg-gray-200" />
+                            <span className="text-xs font-medium text-gray-500 uppercase">Pinned</span>
+                            <div className="h-px flex-1 bg-gray-200" />
+                        </div>
+                    </>
+                )}
+
+                {/* REGULAR */}
+                {regularPlaces.map(place => (
+                    <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
+                ))}
+            </ul>
+
+            {places.length > 0 && pinnedPlaces.length === 0 && regularPlaces.length === 0 && (
                 <div className="text-sm text-gray-500">No locations match your search.</div>
             )}
 

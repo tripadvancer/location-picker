@@ -14,4 +14,6 @@ export interface Place {
     name: string
     coordinates: Coordinates
     pinned?: boolean
+    createdAt: number
+    pinnedAt?: number
 }

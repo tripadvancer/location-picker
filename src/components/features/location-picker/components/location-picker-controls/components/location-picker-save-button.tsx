@@ -21,8 +21,11 @@ export const LocationPickerSaveButton = ({ coordinates }: LocationPickerSaveButt
 
         try {
             const place: Omit<Place, 'id'> = {
-                coordinates: { lat: Number(coordinates.lat), lng: Number(coordinates.lng) },
                 name: name.trim(),
+                coordinates: { lat: Number(coordinates.lat), lng: Number(coordinates.lng) },
+                pinned: false,
+                createdAt: Date.now(),
+                pinnedAt: undefined,
             }
 
             await addPlace(place)

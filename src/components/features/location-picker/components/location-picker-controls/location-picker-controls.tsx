@@ -69,7 +69,7 @@ export const LocationPickerControls = () => {
                     <LocationPickerSaveButton coordinates={{ lat: Number(lat), lng: Number(lng) }} />
                 </div>
             ) : (
-                <>
+                <div>
                     <LocationPickerSaveButton coordinates={{ lat: Number(lat), lng: Number(lng) }} />
 
                     <BottomSheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)}>
@@ -96,7 +96,7 @@ export const LocationPickerControls = () => {
                             <LocationPickerShareButton navLink={navLink} />
                         </div>
                     </BottomSheet>
-                </>
+                </div>
             )}
         </div>
     )

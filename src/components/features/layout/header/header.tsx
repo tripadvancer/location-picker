@@ -22,7 +22,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className="z-40 flex items-center justify-between gap-x-12 border-b border-gray-300 bg-white py-4">
+            <header className="sticky top-0 z-40 flex items-center justify-between gap-x-12 border-b border-gray-300 bg-white py-4">
                 <Logo onClick={closeMobileMenu} />
 
                 <div className="flex flex-1 items-center gap-x-4">
@@ -32,7 +32,7 @@ export const Header = () => {
                         </Suspense>
                     </div>
 
-                    <div className="cursor-pointer text-gray-500 hover:text-gray-950">
+                    <div className="hidden cursor-pointer text-gray-500 hover:text-gray-950 md:block">
                         {isOpen ? <XIcon onClick={closeMobileMenu} /> : <MenuIcon onClick={openMobileMenu} />}
                     </div>
                 </div>

@@ -14,10 +14,8 @@ export const LocationPickerMap = () => {
     const [isMapMoving, setIsMapMoving] = useState(false)
     const [initialViewState, setInitialViewState] = useState<ViewState | null>(null)
 
-    // Храним последние координаты карты, установленные через onMoveEnd
     const lastMovedByMapRef = useRef<{ lat: number; lng: number } | null>(null)
 
-    // 1. Первоначальный initialViewState
     useEffect(() => {
         const lat = parseFloat(searchParams.get('lat') || '')
         const lng = parseFloat(searchParams.get('lng') || '')
@@ -35,7 +33,6 @@ export const LocationPickerMap = () => {
         }
     }, [searchParams])
 
-    // 2. Отслеживаем внешние изменения URL и делаем flyTo
     useEffect(() => {
         const map = mapRef.current
         if (!map) return
@@ -59,10 +56,9 @@ export const LocationPickerMap = () => {
             lastMoved && Math.abs(lastMoved.lat - lat) < 1e-6 && Math.abs(lastMoved.lng - lng) < 1e-6
 
         if ((latChanged || lngChanged) && !sameAsLastMoved) {
-            map.flyTo({
+            map.jumpTo({
                 center: [lng, lat],
                 zoom,
-                duration: 800,
             })
         }
     }, [searchParams])
@@ -109,7 +105,11 @@ export const LocationPickerMap = () => {
                 onMoveStart={handleMoveStart}
                 onMoveEnd={handleMoveEnd}
             >
-                <GeolocateControl />
+                <GeolocateControl
+                    positionOptions={{ enableHighAccuracy: true }}
+                    trackUserLocation={false}
+                    fitBoundsOptions={{ duration: 0 }}
+                />
                 <NavigationControl />
 
                 <Image

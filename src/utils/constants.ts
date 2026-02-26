@@ -23,6 +23,12 @@ export const NAVIGATORS = [
         id: Navigator.Apple,
         name: 'Apple',
         icon: '/images/navigators/apple.png',
-        link: (lat: number, lng: number) => `https://maps.apple.com/?daddr=${lat},${lng}`,
+        link: (lat: number, lng: number) => {
+            if (typeof window !== 'undefined' && /Android|iPhone/i.test(navigator.userAgent)) {
+                return `yandexnavi://build_route_on_map?lat_to=${lat}&lon_to=${lng}`
+            }
+
+            return `https://yandex.ru/maps/?ll=${lng},${lat}&z=16`
+        },
     },
 ]

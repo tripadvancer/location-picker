@@ -5,7 +5,7 @@ import { About } from '@/components/features/about/about'
 // prettier-ignore
 export const metadata: Metadata = {
     title: 'About Location Picker - Your Online Location Tool',
-    description: 'Learn more about Location Picker, a free online tool for searching, converting, and sharing locations by address or coordinates. Discover how it works and its features.',
+    description: 'Learn more about Location Picker, a free online tool for searching, converting, storing and sharing locations by address or coordinates. Discover how it works and its features.',
     keywords: [
         'location picker',
         'about location picker',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'About Location Picker - Your Online Location Tool',
-        description: 'Learn more about Location Picker, a free online tool for searching, converting, and sharing locations by address or coordinates.',
+        description: 'Learn more about Location Picker, a free online tool for searching, converting, storing and sharing locations by address or coordinates.',
         type: 'website',
         url: '/about',
         siteName: 'Location Picker',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'About Location Picker',
-        description: 'Learn more about Location Picker, your free online tool for storing, converting, and sharing locations.',
+        description: 'Learn more about Location Picker, a free online tool for searching, converting, storing and sharing locations by address or coordinates.',
         images: ['/og-image-about.png'],
     },
 }

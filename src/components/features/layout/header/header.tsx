@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/ui/logo'
 
 const NAV_ITEMS = [
-    { href: '/app/saved', label: 'Saved' },
-    { href: '/app/coordinate-converter', label: 'Converter' },
-    { href: '/app/about', label: 'About' },
+    { href: '/saved', label: 'Saved' },
+    { href: '/coordinate-converter', label: 'Converter' },
+    { href: '/about', label: 'About' },
 ]
 
 export const Header = () => {

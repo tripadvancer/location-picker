@@ -28,7 +28,7 @@ export const Landing = () => {
                     <InstallPWAButton width={162} height={48} />
                     <Button
                         className="bg-gray-900 font-semibold text-white hover:bg-gray-950"
-                        onClick={() => router.push('/app')}
+                        onClick={() => router.push('/')}
                     >
                         Launch in Browser
                     </Button>

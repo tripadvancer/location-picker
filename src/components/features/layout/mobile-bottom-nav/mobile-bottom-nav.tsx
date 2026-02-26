@@ -7,10 +7,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NAV_ITEMS = [
-    { href: '/app', label: 'Home', icon: HouseIcon },
-    { href: '/app/saved', label: 'Saved', icon: HeartIcon },
-    { href: '/app/coordinate-converter', label: 'Converter', icon: CompassIcon },
-    { href: '/app/about', label: 'About', icon: InfoIcon },
+    { href: '/', label: 'Home', icon: HouseIcon },
+    { href: '/saved', label: 'Saved', icon: HeartIcon },
+    { href: '/coordinate-converter', label: 'Converter', icon: CompassIcon },
+    { href: '/about', label: 'About', icon: InfoIcon },
 ]
 
 export const MobileBottomNav = () => {

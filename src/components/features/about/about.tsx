@@ -53,7 +53,7 @@ export const About = () => {
                 <p>
                     You can save your favorite locations directly in&nbsp;the app and easily access them on&nbsp;the
                     &quot;
-                    <Link href="/app/saved" className="text-blue-500 hover:text-blue-600">
+                    <Link href="/saved" className="text-blue-500 hover:text-blue-600">
                         My Saved Locations
                     </Link>
                     &quot; page. All saved data is&nbsp;stored locally on&nbsp;your device, so&nbsp;your information
@@ -64,7 +64,7 @@ export const About = () => {
             <AboutExpander title="Coordinate Converter">
                 <p>
                     Easily{' '}
-                    <Link href="/app/coordinate-converter" className="text-blue-500 hover:text-blue-600">
+                    <Link href="/coordinate-converter" className="text-blue-500 hover:text-blue-600">
                         convert coordinates
                     </Link>{' '}
                     between Decimal Degrees (DD) and Degrees, Minutes, Seconds (DMS) formats. Just enter coordinates in

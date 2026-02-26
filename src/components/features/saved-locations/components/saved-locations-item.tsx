@@ -88,7 +88,7 @@ export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemPr
         <>
             <li className="flex items-center justify-between gap-x-4 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm">
                 <Link
-                    href={`/app?lat=${place.coordinates.lat}&lng=${place.coordinates.lng}&zoom=15`}
+                    href={`/?lat=${place.coordinates.lat}&lng=${place.coordinates.lng}&zoom=15`}
                     className="font-bold"
                 >
                     {place.name}

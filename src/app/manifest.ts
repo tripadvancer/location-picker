@@ -6,8 +6,8 @@ export default function manifest(): MetadataRoute.Manifest {
         name: 'Location Picker',
         short_name: 'Location Picker',
         description: 'Location Picker – a tool for storing and sharing locations easily.',
-        start_url: '/app',
-        scope: '/app',
+        start_url: '/',
+        scope: '/',
         display: 'standalone',
         display_override: ['window-controls-overlay', 'standalone', 'fullscreen'],
         orientation: 'portrait',
@@ -49,7 +49,7 @@ export default function manifest(): MetadataRoute.Manifest {
         protocol_handlers: [
             {
                 protocol: 'web+comedyportal',
-                url: '/app?link=%s',
+                url: '/?link=%s',
             },
         ],
     }

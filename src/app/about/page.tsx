@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         'coordinates converter',
     ],
     alternates: {
-        canonical: '/app/about'
+        canonical: '/about'
     },
     robots: {
         index: true,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         title: 'About Location Picker - Your Online Location Tool',
         description: 'Learn more about Location Picker, a free online tool for searching, converting, storing and sharing locations by address or coordinates.',
         type: 'website',
-        url: '/app/about',
+        url: '/about',
         siteName: 'Location Picker',
         images: [
             {

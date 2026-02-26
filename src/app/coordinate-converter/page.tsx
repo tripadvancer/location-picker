@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         'map coordinates',
     ],
     alternates: {
-        canonical: '/app/coordinate-converter',
+        canonical: '/coordinate-converter',
     },
     robots: {
         index: true,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         title: 'GPS Coordinates Converter - DD & DMS Formats',
         description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats.',
         type: 'website',
-        url: '/app/coordinate-converter',
+        url: '/coordinate-converter',
         siteName: 'Location Picker',
         images: [
             {

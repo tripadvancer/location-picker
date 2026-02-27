@@ -2,11 +2,11 @@
 
 import Link from 'next/link'
 
-type LocationPickerOpenButtonProps = {
+type LocationActionsOpenButtonProps = {
     navLink: string
 }
 
-export const LocationPickerOpenButton = ({ navLink }: LocationPickerOpenButtonProps) => {
+export const LocationActionsOpenButton = ({ navLink }: LocationActionsOpenButtonProps) => {
     return (
         <Link
             href={navLink}

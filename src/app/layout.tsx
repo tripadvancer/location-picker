@@ -9,7 +9,7 @@ import { Roboto } from 'next/font/google'
 import { Footer } from '@/components/features/layout/footer/footer'
 import { Header } from '@/components/features/layout/header/header'
 import { MobileBottomNav } from '@/components/features/layout/mobile-bottom-nav/mobile-bottom-nav'
-import { DialogProvider } from '@/components/providers/dialog-provider'
+import { OverlayProvider } from '@/components/providers/overlay-provider'
 import { ToastProvider } from '@/components/providers/toast-provider'
 
 import './globals.css'
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             </head>
             <body className="h-full antialiased">
                 <ToastProvider>
-                    <DialogProvider>
+                    <OverlayProvider>
                         <div className="h-full">
                             <div className="relative m-auto flex min-h-full max-w-250 flex-col bg-white px-4 md:px-8">
                                 <Header />
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                             </div>
                         </div>
                         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
-                    </DialogProvider>
+                    </OverlayProvider>
                 </ToastProvider>
             </body>
         </html>

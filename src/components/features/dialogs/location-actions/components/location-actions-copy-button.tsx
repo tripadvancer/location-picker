@@ -7,11 +7,11 @@ import { CheckIcon } from 'lucide-react'
 import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
 
-type LocationPickerCopyButtonProps = {
+type LocationActionsCopyButtonProps = {
     navLink: string
 }
 
-export const LocationPickerCopyButton = ({ navLink }: LocationPickerCopyButtonProps) => {
+export const LocationActionsCopyButton = ({ navLink }: LocationActionsCopyButtonProps) => {
     const toast = useToast()
     const [copied, setCopied] = useState(false)
 

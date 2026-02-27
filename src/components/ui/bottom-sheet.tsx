@@ -4,21 +4,41 @@ import { ReactNode, useEffect, useRef, useState } from 'react'
 
 import classNames from 'classnames'
 
+import { Keys } from '@/utils/enums'
+import { useKeypress } from '@/utils/hooks/use-keypress'
+
 type BottomSheetProps = {
-    isOpen: boolean
+    content: ReactNode
     onClose: () => void
-    children: ReactNode
 }
 
-export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => {
+export const BottomSheet = ({ content, onClose }: BottomSheetProps) => {
+    const [visible, setVisible] = useState(false)
     const [translateY, setTranslateY] = useState(0)
+
+    useKeypress(Keys.ESCAPE, onClose)
+
     const startY = useRef<number | null>(null)
 
     useEffect(() => {
-        document.body.style.overflow = isOpen ? 'hidden' : ''
-    }, [isOpen])
+        requestAnimationFrame(() => {
+            setVisible(true)
+        })
 
-    // swipe to close
+        document.body.style.overflow = 'hidden'
+
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [])
+
+    const closeWithAnimation = () => {
+        setVisible(false)
+        setTimeout(() => {
+            onClose()
+        }, 300)
+    }
+
     const handleTouchStart = (e: React.TouchEvent) => {
         startY.current = e.touches[0].clientY
     }
@@ -30,37 +50,35 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
     }
 
     const handleTouchEnd = () => {
-        if (translateY > 120) onClose()
+        if (translateY > 120) {
+            closeWithAnimation()
+        }
         setTranslateY(0)
         startY.current = null
     }
 
     return (
         <>
-            {/* Backdrop */}
             <div
-                onClick={onClose}
+                onClick={closeWithAnimation}
                 className={classNames(
                     'fixed inset-0 z-40 bg-black/40 transition-opacity duration-300',
-                    isOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
+                    visible ? 'opacity-100' : 'pointer-events-none opacity-0',
                 )}
             />
 
-            {/* Sheet */}
             <div
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 style={{
-                    transform: `translateY(${isOpen ? translateY : 1000}px)`,
+                    transform: `translateY(${visible ? translateY : 1000}px)`,
                     transition: translateY === 0 ? 'transform 300ms ease' : 'none',
                 }}
                 className="fixed right-0 bottom-0 left-0 z-50 rounded-t-3xl bg-white p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] shadow-2xl"
             >
-                {/* Drag handle */}
                 <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-gray-300" />
-
-                {children}
+                {content}
             </div>
         </>
     )

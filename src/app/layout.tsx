@@ -9,7 +9,8 @@ import { Roboto } from 'next/font/google'
 import { Footer } from '@/components/features/layout/footer/footer'
 import { Header } from '@/components/features/layout/header/header'
 import { MobileBottomNav } from '@/components/features/layout/mobile-bottom-nav/mobile-bottom-nav'
-import { ToastProvider } from '@/utils/providers/toast-provider'
+import { DialogProvider } from '@/components/providers/dialog-provider'
+import { ToastProvider } from '@/components/providers/toast-provider'
 
 import './globals.css'
 
@@ -37,15 +38,17 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             </head>
             <body className="h-full antialiased">
                 <ToastProvider>
-                    <div className="h-full">
-                        <div className="relative m-auto flex min-h-full max-w-250 flex-col bg-white px-4 md:px-8">
-                            <Header />
-                            <main className="flex w-full grow py-4 pb-22 md:block md:py-8">{children}</main>
-                            <Footer />
-                            <MobileBottomNav />
+                    <DialogProvider>
+                        <div className="h-full">
+                            <div className="relative m-auto flex min-h-full max-w-250 flex-col bg-white px-4 md:px-8">
+                                <Header />
+                                <main className="flex w-full grow py-4 pb-22 md:block md:py-8">{children}</main>
+                                <Footer />
+                                <MobileBottomNav />
+                            </div>
                         </div>
-                    </div>
-                    <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
+                        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
+                    </DialogProvider>
                 </ToastProvider>
             </body>
         </html>

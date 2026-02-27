@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import { CheckIcon } from 'lucide-react'
 
+import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
-import { useToast } from '@/utils/providers/toast-provider'
 
 type LocationPickerCopyButtonProps = {
     navLink: string

@@ -6,11 +6,11 @@ import { PencilIcon, PinIcon, TrashIcon } from 'lucide-react'
 
 import Link from 'next/link'
 
+import { useToast } from '@/components/providers/toast-provider'
 import { BottomSheet } from '@/components/ui/bottom-sheet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { deletePlace, updatePlace } from '@/utils/db'
-import { useToast } from '@/utils/providers/toast-provider'
 import { Place } from '@/utils/types'
 
 type SavedLocationsItemProps = {

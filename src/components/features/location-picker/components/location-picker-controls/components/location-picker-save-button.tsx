@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 
+import { useToast } from '@/components/providers/toast-provider'
 import { BottomSheet } from '@/components/ui/bottom-sheet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { addPlace } from '@/utils/db'
-import { useToast } from '@/utils/providers/toast-provider'
 import { Coordinates, Place } from '@/utils/types'
 
 type LocationPickerSaveButtonProps = {

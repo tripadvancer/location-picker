@@ -1,7 +1,7 @@
 'use client'
 
+import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
-import { useToast } from '@/utils/providers/toast-provider'
 
 type LocationPickerShareButtonProps = {
     navLink: string

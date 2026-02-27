@@ -1,3 +1,10 @@
+export enum Keys {
+    ENTER = 'Enter',
+    ESCAPE = 'Escape',
+    UP = 'ArrowUp',
+    DOWN = 'ArrowDown',
+}
+
 export enum Navigator {
     Waze = 'waze',
     Google = 'google',

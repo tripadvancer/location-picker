@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import useSWRMutation from 'swr/mutation'
 
-import { useToast } from '@/utils/providers/toast-provider'
+import { useToast } from '@/components/providers/toast-provider'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 

@@ -77,7 +77,6 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
             </div>
 
             <Input
-                autoFocus
                 placeholder="Location name"
                 value={name}
                 error={error}

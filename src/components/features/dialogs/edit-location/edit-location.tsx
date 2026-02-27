@@ -71,7 +71,6 @@ export const EditLocation = ({ place, onSuccess }: EditLocationProps) => {
             </div>
 
             <Input
-                autoFocus
                 value={name}
                 error={error}
                 placeholder="Location name"

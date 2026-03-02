@@ -13,6 +13,7 @@ A simple location picker built with Next.js and MapLibre.
 - Search for locations by address or coordinates (DD or DMS)
 - Select a location on the map
 - Share selected location via Google Maps, Waze, Apple Maps, and Yandex Maps
+- Save and store your locations
 
 ## Tripadvancer
 

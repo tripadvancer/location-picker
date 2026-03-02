@@ -6,6 +6,7 @@ import type { Viewport } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 
+import YandexMetrika from '@/components/features/common/yandex-metrika/yandex-metrika'
 import { Footer } from '@/components/features/layout/footer/footer'
 import { Header } from '@/components/features/layout/header/header'
 import { MobileBottomNav } from '@/components/features/layout/mobile-bottom-nav/mobile-bottom-nav'
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <head>
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+                <meta name="yandex-verification" content="b588c94393b01e7f" />
                 <link href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css" rel="stylesheet" />
                 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
                 <link rel="apple-touch-icon" href="/icons/icon-192.png" />
@@ -48,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                             </div>
                         </div>
                         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string} />
+                        <YandexMetrika />
                     </OverlayProvider>
                 </ToastProvider>
             </body>

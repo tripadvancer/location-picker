@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 
+import { Divider } from '@/components/ui/divider'
 import { SearchInput } from '@/components/ui/search-input'
 import { getPlaces } from '@/utils/db'
 import { Place } from '@/utils/types'
@@ -63,15 +64,10 @@ export const SavedLocations = () => {
                             <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
                         ))}
 
-                        <div className="flex items-center gap-x-2">
-                            <div className="h-px flex-1 bg-gray-200" />
-                            <span className="text-xs font-medium text-gray-500 uppercase">Pinned</span>
-                            <div className="h-px flex-1 bg-gray-200" />
-                        </div>
+                        <Divider label="Pinned" />
                     </>
                 )}
 
-                {/* REGULAR */}
                 {regularPlaces.map(place => (
                     <SavedLocationsItem key={`place-${place.id}`} place={place} onLoadPlaces={loadPlaces} />
                 ))}

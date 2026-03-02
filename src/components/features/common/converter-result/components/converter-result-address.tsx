@@ -1,13 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import useSWRMutation from 'swr/mutation'
 
 import { useToast } from '@/components/providers/toast-provider'
 import { Coordinates } from '@/utils/types'
 
-const fetcher = (url: string) => fetch(url).then(res => res.json())
+const fetcher = async (url: string) => {
+    const res = await fetch(url)
+    if (!res.ok) throw new Error('Failed request')
+    return res.json()
+}
 
 type ConverterResultAddressProps = {
     coordinates: Coordinates
@@ -15,24 +19,20 @@ type ConverterResultAddressProps = {
 
 export const ConverterResultAddress = ({ coordinates }: ConverterResultAddressProps) => {
     const toast = useToast()
-
     const [address, setAddress] = useState<string | null>(null)
-    const [lastCoords, setLastCoords] = useState<string | null>(null)
 
-    const url = `/api/reverse-geocode?lat=${coordinates.lat}&lon=${coordinates.lng}`
+    const url = useMemo(
+        () => `/api/reverse-geocode?lat=${coordinates.lat}&lon=${coordinates.lng}`,
+        [coordinates.lat, coordinates.lng],
+    )
+
     const { trigger, isMutating, error } = useSWRMutation(url, fetcher)
 
-    const currentCoords = `${coordinates.lat},${coordinates.lng}`
-
     useEffect(() => {
-        if (currentCoords !== lastCoords) {
-            setAddress(null)
-            setLastCoords(currentCoords)
-        }
-    }, [currentCoords, lastCoords])
+        setAddress(null)
+    }, [coordinates.lat, coordinates.lng])
 
     const handleClick = async () => {
-        if (!url) return
         try {
             const result = await trigger()
             if (result?.address) {
@@ -40,23 +40,19 @@ export const ConverterResultAddress = ({ coordinates }: ConverterResultAddressPr
             }
         } catch {
             toast.error('Error', 'Failed to fetch address')
-            setAddress(null)
         }
     }
 
     return (
         <div>
-            {!address && (
-                <>
-                    {isMutating ? (
-                        <div className="text-gray-500">Loading...</div>
-                    ) : (
-                        <div onClick={handleClick} className="cursor-pointer text-blue-500">
-                            Get address
-                        </div>
-                    )}
-                </>
-            )}
+            {!address &&
+                (isMutating ? (
+                    <div className="text-gray-500">Loading...</div>
+                ) : (
+                    <button onClick={handleClick} className="text-blue-500 hover:underline">
+                        Get address
+                    </button>
+                ))}
 
             {error && <div className="text-red-500">Error fetching address</div>}
 

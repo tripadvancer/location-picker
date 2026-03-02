@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import { ConverterResult } from '@/components/features/common/converter-result/converter-result'
 import { Button } from '@/components/ui/button'
+import { Divider } from '@/components/ui/divider'
 import { Input } from '@/components/ui/input'
 import { SearchType } from '@/utils/enums'
 import { detectSearchType } from '@/utils/helpers'
@@ -65,7 +66,12 @@ export const CoordinateConverter = () => {
                 </Button>
             </div>
 
-            {lat && lng && <ConverterResult coordinates={{ lat: Number(lat), lng: Number(lng) }} />}
+            {lat && lng && (
+                <>
+                    <Divider label="Result" />
+                    <ConverterResult coordinates={{ lat: Number(lat), lng: Number(lng) }} />
+                </>
+            )}
         </section>
     )
 }

@@ -17,7 +17,7 @@ export const About = () => {
                 and open or&nbsp;share any location via Google Maps, Waze, Apple Maps, or&nbsp;Yandex.Maps.
             </p>
 
-            <div className="flex items-start gap-x-2 rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">
+            <div className="flex items-start gap-x-2 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">
                 <InfoIcon size={20} className="hidden shrink-0 md:block" />
                 We&nbsp;don&rsquo;t store any personal data. The saved locations are only stored in&nbsp;your
                 browser&rsquo;s local storage.

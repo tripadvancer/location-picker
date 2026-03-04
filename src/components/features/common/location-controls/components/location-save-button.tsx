@@ -17,7 +17,7 @@ export const LocationSaveButton = ({ coordinates }: LocationSaveButtonProps) => 
     }
 
     return (
-        <Button className="w-full" onClick={handleClick}>
+        <Button variant="major" className="w-full" onClick={handleClick}>
             Save location
         </Button>
     )

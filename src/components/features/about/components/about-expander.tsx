@@ -21,7 +21,7 @@ export const AboutExpander = ({ title, children }: AboutExpanderProps) => {
         <div>
             <div
                 className={classNames(
-                    'group flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-gray-50 p-4 transition-colors hover:bg-gray-100',
+                    'group flex cursor-pointer items-center justify-between rounded-xl border border-gray-100 bg-gray-50 p-4 transition-colors hover:bg-gray-100',
                     {
                         'bg-gray-100': isOpen,
                     },

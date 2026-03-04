@@ -6,10 +6,10 @@ import { useOverlay } from '@/components/providers/overlay-provider'
 import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { deletePlace, updatePlace } from '@/utils/db'
+import { updatePlace } from '@/utils/db'
 import { Place } from '@/utils/types'
 
-import { Confirmation } from '../confirmation/confirmation'
+import { Preview } from '../preview/preview'
 
 type EditLocationProps = {
     place: Place
@@ -45,26 +45,8 @@ export const EditLocation = ({ place, onSuccess }: EditLocationProps) => {
         }
     }
 
-    const handleDelete = () => {
-        overlay.open(
-            <Confirmation
-                title="Delete location"
-                message="Are you sure you want to delete this location?"
-                onConfirm={async () => {
-                    try {
-                        setLoading(true)
-                        await deletePlace(place.id!)
-                        onSuccess()
-                        overlay.close()
-                    } catch (err) {
-                        console.error(err)
-                        toast.error('Error', 'Failed to delete location')
-                    } finally {
-                        setLoading(false)
-                    }
-                }}
-            />,
-        )
+    const handleCancel = () => {
+        overlay.open(<Preview place={place} onSuccess={onSuccess} />)
     }
 
     return (
@@ -84,12 +66,12 @@ export const EditLocation = ({ place, onSuccess }: EditLocationProps) => {
                 }}
             />
 
-            <Button className="w-full" disabled={loading} onClick={handleSave}>
+            <Button variant="major" className="w-full" disabled={loading} onClick={handleSave}>
                 Save changes
             </Button>
 
-            <Button className="w-full text-red-500" disabled={loading} onClick={handleDelete}>
-                Delete location
+            <Button variant="minor" className="w-full" disabled={loading} onClick={handleCancel}>
+                Cancel
             </Button>
         </div>
     )

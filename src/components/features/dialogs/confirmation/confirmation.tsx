@@ -1,18 +1,15 @@
 'use client'
 
-import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
-import { useKeypress } from '@/utils/hooks/use-keypress'
 
 type ConfirmationProps = {
     title: string
     message: string
     onConfirm: () => void
+    onCancel: () => void
 }
 
-export const Confirmation = ({ title, message, onConfirm }: ConfirmationProps) => {
-    const overlay = useOverlay()
-
+export const Confirmation = ({ title, message, onConfirm, onCancel }: ConfirmationProps) => {
     return (
         <div className="space-y-4 md:w-87">
             <div className="border-b border-gray-200 pb-4">
@@ -20,11 +17,11 @@ export const Confirmation = ({ title, message, onConfirm }: ConfirmationProps) =
                 <div className="text-xs text-gray-500">{message}</div>
             </div>
 
-            <Button className="w-full text-red-500" onClick={onConfirm}>
+            <Button variant="major" className="w-full text-red-500" onClick={onConfirm}>
                 Confirm
             </Button>
 
-            <Button className="w-full" onClick={() => overlay.close()}>
+            <Button variant="minor" className="w-full" onClick={onCancel}>
                 Cancel
             </Button>
         </div>

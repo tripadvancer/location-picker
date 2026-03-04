@@ -6,6 +6,7 @@ import { NAVIGATORS } from '@/utils/constants'
 import { Navigator } from '@/utils/enums'
 import { Coordinates } from '@/utils/types'
 
+import { LocationActionsCancelButton } from './components/location-actions-cancel-button'
 import { LocationActionsCopyButton } from './components/location-actions-copy-button'
 import { LocationActionsOpenButton } from './components/location-actions-open-button'
 import { LocationActionsShareButton } from './components/location-actions-share-button'
@@ -25,7 +26,7 @@ export const LocationActions = ({ navigator, coordinates }: LocationActionsProps
 
                 return (
                     <div className="mb-4 flex items-center gap-3 border-b border-gray-200 pb-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100">
                             <Image src={activeNav.icon} width={24} height={24} alt={activeNav.name} />
                         </div>
                         <div className="text-sm">
@@ -37,9 +38,10 @@ export const LocationActions = ({ navigator, coordinates }: LocationActionsProps
             })()}
 
             <div className="flex flex-col gap-3">
-                <LocationActionsOpenButton navLink={link} />
-                <LocationActionsCopyButton navLink={link} />
-                <LocationActionsShareButton navLink={link} />
+                <LocationActionsOpenButton link={link} />
+                <LocationActionsCopyButton link={link} />
+                <LocationActionsShareButton link={link} />
+                <LocationActionsCancelButton />
             </div>
         </div>
     )

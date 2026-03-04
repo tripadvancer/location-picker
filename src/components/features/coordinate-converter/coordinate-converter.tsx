@@ -61,7 +61,7 @@ export const CoordinateConverter = () => {
                     className="w-full"
                     onChange={e => setValue(e.target.value)}
                 />
-                <Button onClick={handleConvert} className="w-full md:w-auto">
+                <Button variant="minor" onClick={handleConvert} className="w-full md:w-auto">
                     Convert
                 </Button>
             </div>

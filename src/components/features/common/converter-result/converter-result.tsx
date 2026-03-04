@@ -12,7 +12,7 @@ type ConverterResultProps = {
 export const ConverterResult = ({ coordinates }: ConverterResultProps) => {
     return (
         <div className="space-y-4">
-            <div className="space-y-1 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm">
+            <div className="space-y-1 rounded-xl border border-gray-100 bg-gray-50 p-4 text-sm">
                 <ConverterResultDd coordinates={coordinates} />
                 <ConverterResultDms coordinates={coordinates} />
                 <ConverterResultAddress coordinates={coordinates} />

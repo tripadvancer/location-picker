@@ -7,6 +7,7 @@ import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { addPlace } from '@/utils/db'
+import { generateDefaultName } from '@/utils/helpers'
 import { Coordinates, Place } from '@/utils/types'
 
 type SaveLocationProps = {
@@ -21,24 +22,7 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
 
-    function generateDefaultName() {
-        const now = new Date()
-
-        const date = now.toLocaleDateString(undefined, {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-        })
-
-        const time = now.toLocaleTimeString(undefined, {
-            hour: '2-digit',
-            minute: '2-digit',
-        })
-
-        return `${date} • ${time}`
-    }
-
-    const savePlace = async () => {
+    const handleSave = async () => {
         const trimmed = name.trim()
 
         if (!trimmed) {
@@ -68,6 +52,10 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
         }
     }
 
+    const handleCancel = () => {
+        overlay.close()
+    }
+
     return (
         <div className="space-y-4 md:w-87">
             <div className="border-b border-gray-200 pb-4">
@@ -85,8 +73,12 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
                 }}
             />
 
-            <Button className="w-full" disabled={loading} onClick={savePlace}>
+            <Button variant="major" className="w-full" disabled={loading} onClick={handleSave}>
                 Save
+            </Button>
+
+            <Button variant="minor" className="w-full md:hidden" disabled={loading} onClick={handleCancel}>
+                Cancel
             </Button>
         </div>
     )

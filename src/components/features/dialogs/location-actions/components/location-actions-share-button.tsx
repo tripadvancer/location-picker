@@ -4,15 +4,15 @@ import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
 
 type LocationActionsShareButtonProps = {
-    navLink: string
+    link: string
 }
 
-export const LocationActionsShareButton = ({ navLink }: LocationActionsShareButtonProps) => {
+export const LocationActionsShareButton = ({ link }: LocationActionsShareButtonProps) => {
     const toast = useToast()
 
     const handleShare = async () => {
         try {
-            await window.navigator.share({ url: navLink })
+            await window.navigator.share({ url: link })
         } catch (err: unknown) {
             if (
                 err instanceof DOMException &&
@@ -28,7 +28,7 @@ export const LocationActionsShareButton = ({ navLink }: LocationActionsShareButt
     }
 
     return (
-        <Button onClick={handleShare} className="block md:hidden">
+        <Button variant="minor" onClick={handleShare} className="block md:hidden">
             Share
         </Button>
     )

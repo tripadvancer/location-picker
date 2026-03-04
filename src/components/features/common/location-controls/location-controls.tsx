@@ -28,7 +28,7 @@ export const LocationControls = ({ coordinates }: LocationControlsProps) => {
                     <div
                         key={nav.id}
                         onClick={() => handleNavigatorClick(nav.id)}
-                        className="flex h-20 cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border border-transparent bg-orange-50 transition hover:border-orange-200 hover:bg-orange-100"
+                        className="flex h-20 cursor-pointer flex-col items-center justify-center gap-y-2 rounded-xl border border-transparent bg-orange-50 transition hover:border-orange-200 hover:bg-orange-100"
                     >
                         <Image src={nav.icon} width={32} height={32} alt={nav.name} />
                         <div className="text-xs font-bold">{nav.name}</div>

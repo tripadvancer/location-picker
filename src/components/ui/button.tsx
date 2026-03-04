@@ -5,6 +5,7 @@ import { ButtonHTMLAttributes } from 'react'
 import classNames from 'classnames'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    variant: 'major' | 'minor'
     className?: string
 }
 
@@ -15,7 +16,9 @@ export const Button = (props: ButtonProps) => {
         <button
             {...rest}
             className={classNames(
-                'h-12 cursor-pointer rounded-lg bg-gray-200 px-4 text-sm hover:bg-gray-300',
+                'h-12 cursor-pointer rounded-xl px-4 text-sm font-semibold',
+                { 'bg-orange-500 text-white hover:bg-orange-400': props.variant === 'major' },
+                { 'bg-gray-200 hover:bg-gray-300': props.variant === 'minor' },
                 props.className,
             )}
             onClick={props.onClick}

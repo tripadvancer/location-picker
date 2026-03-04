@@ -87,7 +87,7 @@ export const Search = () => {
             />
 
             {isAutocompleteVisible && (
-                <div className="absolute top-full right-0 left-0 z-10 rounded-lg bg-white p-1 shadow-lg">
+                <div className="absolute top-full right-0 left-0 z-10 rounded-xl bg-white p-1 shadow-lg">
                     {data?.items.map((item, index) => (
                         <div
                             key={`search-item-${index}`}

@@ -25,6 +25,7 @@ export const Landing = () => {
                 </p>
 
                 <Button
+                    variant="major"
                     className="bg-gray-900 font-semibold text-white hover:bg-gray-950"
                     onClick={() => router.push('/')}
                 >

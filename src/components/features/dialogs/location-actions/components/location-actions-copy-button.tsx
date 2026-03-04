@@ -8,17 +8,17 @@ import { useToast } from '@/components/providers/toast-provider'
 import { Button } from '@/components/ui/button'
 
 type LocationActionsCopyButtonProps = {
-    navLink: string
+    link: string
 }
 
-export const LocationActionsCopyButton = ({ navLink }: LocationActionsCopyButtonProps) => {
+export const LocationActionsCopyButton = ({ link }: LocationActionsCopyButtonProps) => {
     const toast = useToast()
     const [copied, setCopied] = useState(false)
 
     const handleCopy = async () => {
         if (typeof window !== 'undefined' && window.navigator.clipboard) {
             try {
-                await window.navigator.clipboard.writeText(navLink)
+                await window.navigator.clipboard.writeText(link)
                 setCopied(true)
                 setTimeout(() => setCopied(false), 2000)
             } catch {
@@ -30,7 +30,7 @@ export const LocationActionsCopyButton = ({ navLink }: LocationActionsCopyButton
     }
 
     return (
-        <Button onClick={handleCopy}>
+        <Button variant="minor" onClick={handleCopy}>
             {copied ? (
                 <span className="flex items-center justify-center gap-1 text-green-600">
                     <CheckIcon className="h-4 w-4" /> Copied

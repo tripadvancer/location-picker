@@ -18,7 +18,7 @@ export const Toast = ({ variant, title, message, onClose }: ToastProps) => {
 
     return (
         <div
-            className="relative rounded-lg border border-gray-100 bg-white p-4 pr-16 text-sm shadow-lg"
+            className="relative rounded-xl border border-gray-100 bg-white p-4 pr-16 text-sm shadow-lg"
             onClick={onClose}
         >
             <div className="flex items-start gap-2">

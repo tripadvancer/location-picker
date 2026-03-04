@@ -1,14 +1,11 @@
 'use client'
 
-import { PencilIcon, PinIcon } from 'lucide-react'
+import { PinIcon } from 'lucide-react'
 
-import Link from 'next/link'
-
+import { Preview } from '@/components/features/dialogs/preview/preview'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { updatePlace } from '@/utils/db'
 import { Place } from '@/utils/types'
-
-import { EditLocation } from '../../dialogs/edit-location/edit-location'
 
 type SavedLocationsItemProps = {
     place: Place
@@ -30,23 +27,17 @@ export const SavedLocationsItem = ({ place, onLoadPlaces }: SavedLocationsItemPr
         onLoadPlaces()
     }
 
-    const handleEdit = () => {
-        overlay.open(<EditLocation place={place} onSuccess={onLoadPlaces} />)
+    const handleClick = () => {
+        overlay.open(<Preview place={place} onSuccess={onLoadPlaces} />)
     }
 
     return (
-        <li className="flex items-center justify-between gap-x-4 rounded-lg border border-gray-100 bg-gray-50 p-4 text-sm">
-            <Link href={`/?lat=${place.coordinates.lat}&lng=${place.coordinates.lng}&zoom=15`} className="font-bold">
+        <li className="flex cursor-pointer items-center justify-between rounded-xl border border-gray-100 bg-gray-50 text-sm hover:bg-gray-100">
+            <div className="flex-1 p-4 font-bold" onClick={handleClick}>
                 {place.name}
-            </Link>
-
-            <div className="flex items-center gap-x-3">
-                <div className="cursor-pointer text-gray-400 hover:text-black" onClick={handleEdit}>
-                    <PencilIcon size={18} />
-                </div>
-                <div onClick={handleTogglePin} className="cursor-pointer">
-                    <PinIcon size={18} color={place.pinned ? '#000000' : '#9CA3AF'} />
-                </div>
+            </div>
+            <div onClick={handleTogglePin} className="cursor-pointer p-4">
+                <PinIcon size={18} color={place.pinned ? '#000000' : '#9CA3AF'} />
             </div>
         </li>
     )

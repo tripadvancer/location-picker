@@ -1,23 +1,20 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 type LocationActionsOpenButtonProps = {
     link: string
 }
 
 export const LocationActionsOpenButton = ({ link }: LocationActionsOpenButtonProps) => {
-    const router = useRouter()
-
-    const handleClick = () => {
-        router.push(link)
-    }
-
     return (
-        <Button variant="major" onClick={handleClick}>
+        <Link
+            href={link}
+            className="flex h-12 cursor-pointer items-center justify-center rounded-xl bg-orange-500 px-4 text-sm font-semibold text-white hover:bg-orange-400"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             Open
-        </Button>
+        </Link>
     )
 }

@@ -34,7 +34,7 @@ export const LocationPicker = () => {
             <div className="flex-0">
                 <Search />
             </div>
-            <div className="flex-1 md:flex-0">
+            <div className="flex-1">
                 <LocationPickerMap />
             </div>
             <div className="flex-0">

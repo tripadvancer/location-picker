@@ -11,10 +11,9 @@ export const About = () => {
     return (
         <div className="space-y-4">
             <p className="mb-8">
-                <strong>Location Picker</strong> is&nbsp;a&nbsp;convenient online tool for <strong>searching</strong>,{' '}
-                <strong>converting</strong>, <strong>storing</strong> and <strong>sharing</strong> coordinates. You can
-                search for places by&nbsp;address or&nbsp;coordinates, easily convert between&nbsp;DD and DMS formats,
-                and open or&nbsp;share any location via Google Maps, Waze, Apple Maps, or&nbsp;Yandex.Maps.
+                <strong>Location Picker</strong> is a simple and convenient tool for finding, saving, and sharing
+                locations. Search for places using an address or coordinates, then easily open or share them with apps
+                like Google Maps, Waze, Apple Maps, or Yandex Maps.
             </p>
 
             <div className="flex items-start gap-x-2 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-blue-400">

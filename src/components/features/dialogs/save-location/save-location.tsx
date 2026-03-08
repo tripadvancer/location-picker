@@ -60,7 +60,7 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
         <div className="space-y-4 md:w-87">
             <div className="border-b border-gray-200 pb-4">
                 <div className="text-sm font-semibold">Save location</div>
-                <div className="text-xs text-gray-500">Enter a name for this place</div>
+                <div className="text-xs text-gray-500">Enter a name for this location</div>
             </div>
 
             <Input

@@ -4,10 +4,10 @@ import { LocationPicker } from '@/components/features/location-picker/location-p
 
 // prettier-ignore
 export const metadata: Metadata = {
-    title: 'Location Picker - Store and Share Locations Easily',
-    description: 'Location Picker is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
+    title: 'My Saved Places - Store and Share Locations Easily',
+    description: 'My Saved Places is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
     keywords: [
-        'location picker',
+        'My Saved Places',
         'store locations quickly',
         'share locations',
         'GPS tool',
@@ -26,28 +26,28 @@ export const metadata: Metadata = {
         follow: true,
     },
     appleWebApp: {
-        title: 'Location Picker',
+        title: 'My Saved Places',
     },
     openGraph: {
-        title: 'Location Picker - Store and Share Locations Easily',
-        description: 'Location Picker is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
+        title: 'My Saved Places - Store and Share Locations Easily',
+        description: 'My Saved Places is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
         type: 'website',
         locale: 'en_US',
         url: '/',
-        siteName: 'Location Picker',
+        siteName: 'My Saved Places',
         images: [
             {
                 url: '/og-image-home.png',
                 width: 1200,
                 height: 630,
-                alt: 'Location Picker Tool Preview',
+                alt: 'My Saved Places Tool Preview',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Location Picker - Store and Share Locations Easily',
-        description: 'Free online tool to quickly save, manage, and share locations. Works with Google Maps, Waze, Apple Maps, and Yandex.Maps.',
+        title: 'My Saved Places - Store and Share Locations Easily',
+        description: 'My Saved Places is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
         images: ['/og-image-home.png'],
     },
 }

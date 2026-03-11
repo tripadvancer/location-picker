@@ -4,9 +4,10 @@ import { SavedLocations } from '@/components/features/saved-locations/saved-loca
 
 // prettier-ignore
 export const metadata: Metadata = {
-    title: 'My Saved Locations - Location Picker',
-    description: 'View and manage all your saved locations in one place. Easily access, edit, and share your locations with Location Picker.',
+    title: 'My Saved Locations',
+    description: 'View and manage all your saved locations in one place. Easily access, edit, and share your locations.',
     keywords: [
+        'my saved location',
         'saved locations',
         'my locations',
         'location picker',
@@ -21,11 +22,11 @@ export const metadata: Metadata = {
         follow: true,
     },
     openGraph: {
-        title: 'My Saved Locations - Location Picker',
-        description: 'View and manage all your saved locations with Location Picker.',
+        title: 'My Saved Locations',
+        description: 'View and manage all your saved locations in one place. Easily access, edit, and share your locations.',
         type: 'website',
         url: '/saved',
-        siteName: 'Location Picker',
+        siteName: 'My Saved Location',
         images: [
             {
                 url: '/og-image-saved.png',
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'My Saved Locations',
-        description: 'Manage and share all your saved locations easily.',
+        description: 'View and manage all your saved locations in one place. Easily access, edit, and share your locations.',
         images: ['/og-image-saved.png'],
     },
 }

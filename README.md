@@ -1,8 +1,8 @@
 [![Deploy Status](https://github.com/tripadvancer/location-picker/actions/workflows/deploy.yml/badge.svg)](https://github.com/location-picker/location-picker.pwa/actions/workflows/deploy.yml)
 
-# Location Picker
+# My Saved Places
 
-A simple location picker built with Next.js and MapLibre.
+A simple app built with Next.js and MapLibre.
 
 [https://location-picker.tripadvancer.com](https://location-picker.tripadvancer.com)
 

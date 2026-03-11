@@ -4,8 +4,8 @@ import { CoordinateConverter } from '@/components/features/coordinate-converter/
 
 // prettier-ignore
 export const metadata: Metadata = {
-    title: 'GPS Coordinates Converter - DD & DMS Formats',
-    description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats using Location Picker.',
+    title: 'Coordinates Converter',
+    description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats.',
     keywords: [
         'gps converter',
         'coordinates converter',
@@ -22,24 +22,24 @@ export const metadata: Metadata = {
         follow: true,
     },
     openGraph: {
-        title: 'GPS Coordinates Converter - DD & DMS Formats',
+        title: 'Coordinates Converter',
         description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats.',
         type: 'website',
         url: '/coordinate-converter',
-        siteName: 'Location Picker',
+        siteName: 'My Saved Places',
         images: [
             {
                 url: '/og-image-converter.png',
                 width: 1200,
                 height: 630,
-                alt: 'GPS Coordinates Converter',
+                alt: 'Coordinates Converter',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'GPS Coordinates Converter',
-        description: 'Convert coordinates between DD and DMS formats quickly and easily.',
+        title: 'Coordinates Converter',
+        description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats.',
         images: ['/og-image-converter.png'],
     },
 }

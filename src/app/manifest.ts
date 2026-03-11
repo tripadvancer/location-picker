@@ -3,9 +3,9 @@ import { MetadataRoute } from 'next'
 export default function manifest(): MetadataRoute.Manifest {
     return {
         id: '/',
-        name: 'Location Picker',
-        short_name: 'Location Picker',
-        description: 'Location Picker – a tool for storing and sharing locations easily.',
+        name: 'My Saved Places',
+        short_name: 'My Saved Places',
+        description: 'My Saved Places – a tool for storing and sharing locations easily.',
         start_url: '/',
         scope: '/',
         display: 'standalone',

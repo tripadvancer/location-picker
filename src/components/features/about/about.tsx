@@ -104,7 +104,7 @@ export const About = () => {
                             </li>
                             <li>Tap the &laquo;Share&raquo; button.</li>
                             <li>Select &laquo;Add to&nbsp;Home Screen&raquo;.</li>
-                            <li>Tap the Location Picker icon on&nbsp;your home screen to&nbsp;launch the app.</li>
+                            <li>Tap the My Saved Places icon on&nbsp;your home screen to&nbsp;launch the app.</li>
                         </ol>
 
                         <h4 className="mb-2 font-bold">How to Install on Android</h4>
@@ -121,7 +121,7 @@ export const About = () => {
                             </li>
                             <li>Tap the menu button (three dots) in&nbsp;the top-right corner.</li>
                             <li>Select &laquo;Add to&nbsp;Home Screen&raquo;.</li>
-                            <li>Tap the Location Picker icon on&nbsp;your home screen to&nbsp;launch the app.</li>
+                            <li>Tap the My Saved Places icon on&nbsp;your home screen to&nbsp;launch the app.</li>
                         </ol>
 
                         <p className="mb-2 font-bold">Or click button in the footer to install the PWA</p>

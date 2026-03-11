@@ -7,7 +7,7 @@ export const Logo = () => {
         <Link href="/" className="flex w-full items-center gap-x-2 md:w-auto">
             <MapPinCheckIcon strokeWidth={2.5} />
             <span className="text-xl font-extrabold whitespace-nowrap uppercase">
-                Location <span className="text-orange-500">Picker</span>
+                My <span className="text-orange-500">Saved</span> Places
             </span>
         </Link>
     )

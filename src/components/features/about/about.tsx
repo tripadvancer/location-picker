@@ -11,7 +11,7 @@ export const About = () => {
     return (
         <div className="space-y-4">
             <p className="mb-8">
-                <strong>Location Picker</strong> is a simple and convenient tool for finding, saving, and sharing
+                <strong>My Saved Places</strong> is a simple and convenient tool for finding, saving, and sharing
                 locations. Search for places using an address or coordinates, then easily open or share them with apps
                 like Google Maps, Waze, Apple Maps, or Yandex Maps.
             </p>
@@ -38,13 +38,13 @@ export const About = () => {
                         it&nbsp;if needed, and generate a&nbsp;link for the navigation app you want. I&nbsp;hope you
                         find it&nbsp;useful too!
                     </p>
-                    <p>
+                    {/* <p>
                         Thanks so&nbsp;much! I&rsquo;d really appreciate any{' '}
                         <ExternalLink href="https://www.producthunt.com/products/location-picker">
                             feedback
                         </ExternalLink>
                         .
-                    </p>
+                    </p> */}
                 </div>
             </AboutExpander>
 

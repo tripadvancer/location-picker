@@ -1,10 +1,9 @@
 'use client'
 
-import { useOverlay } from '@/components/providers/overlay-provider'
-import { Button } from '@/components/ui/button'
 import { Place } from '@/utils/types'
 
-import { PreviewDeleteButton } from './components/preview-delete-button'
+import { PreviewCancelButton } from './components/preview-cancel-button'
+import { PreviewCopyCoordinatesButton } from './components/preview-copy-coordinates-button'
 import { PreviewEditButton } from './components/preview-edit-button'
 import { PreviewShowOnMapButton } from './components/preview-show-on-map-button'
 
@@ -14,12 +13,6 @@ type PreviewProps = {
 }
 
 export const Preview = ({ place, onSuccess }: PreviewProps) => {
-    const overlay = useOverlay()
-
-    const handleCancel = () => {
-        overlay.close()
-    }
-
     return (
         <div className="space-y-4 md:w-87">
             <div className="border-b border-gray-200 pb-4">
@@ -28,12 +21,9 @@ export const Preview = ({ place, onSuccess }: PreviewProps) => {
             </div>
 
             <PreviewShowOnMapButton place={place} />
+            <PreviewCopyCoordinatesButton place={place} />
             <PreviewEditButton place={place} onSuccess={onSuccess} />
-            <PreviewDeleteButton place={place} onSuccess={onSuccess} />
-
-            <Button variant="minor" className="w-full md:hidden" onClick={handleCancel}>
-                Cancel
-            </Button>
+            <PreviewCancelButton />
         </div>
     )
 }

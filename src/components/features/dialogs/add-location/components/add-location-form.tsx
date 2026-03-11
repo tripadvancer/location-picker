@@ -10,19 +10,18 @@ import { addPlace } from '@/utils/db'
 import { generateDefaultName } from '@/utils/helpers'
 import { Coordinates, Place } from '@/utils/types'
 
-type SaveLocationProps = {
+type AddLocationFormProps = {
     coordinates: Coordinates
 }
 
-export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
+export const AddLocationForm = ({ coordinates }: AddLocationFormProps) => {
     const toast = useToast()
     const overlay = useOverlay()
 
     const [name, setName] = useState(generateDefaultName())
     const [error, setError] = useState<string | null>(null)
-    const [loading, setLoading] = useState(false)
 
-    const handleSave = async () => {
+    const handleClick = async () => {
         const trimmed = name.trim()
 
         if (!trimmed) {
@@ -31,7 +30,6 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
         }
 
         try {
-            setLoading(true)
             const place: Omit<Place, 'id'> = {
                 name: trimmed,
                 coordinates: {
@@ -47,22 +45,11 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
         } catch (err) {
             console.error(err)
             toast.error('Error', 'Failed to save location')
-        } finally {
-            setLoading(false)
         }
     }
 
-    const handleCancel = () => {
-        overlay.close()
-    }
-
     return (
-        <div className="space-y-4 md:w-87">
-            <div className="border-b border-gray-200 pb-4">
-                <div className="text-sm font-semibold">Save location</div>
-                <div className="text-xs text-gray-500">Enter a name for this location</div>
-            </div>
-
+        <div className="space-y-4">
             <Input
                 placeholder="Location name"
                 value={name}
@@ -73,12 +60,8 @@ export const SaveLocation = ({ coordinates }: SaveLocationProps) => {
                 }}
             />
 
-            <Button variant="major" className="w-full" disabled={loading} onClick={handleSave}>
+            <Button variant="major" className="w-full" onClick={handleClick}>
                 Save
-            </Button>
-
-            <Button variant="minor" className="w-full md:hidden" disabled={loading} onClick={handleCancel}>
-                Cancel
             </Button>
         </div>
     )

@@ -1,17 +1,18 @@
+'use client'
+
 import { Confirmation } from '@/components/features/dialogs/confirmation/confirmation'
+import { EditLocation } from '@/components/features/dialogs/edit-location/edit-location'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
 import { deletePlace } from '@/utils/db'
 import { Place } from '@/utils/types'
 
-import { Preview } from '../preview'
-
-type PreviewDeleteButtonProps = {
+type EditLocationDeleteButtonProps = {
     place: Place
     onSuccess: () => void
 }
 
-export const PreviewDeleteButton = ({ place, onSuccess }: PreviewDeleteButtonProps) => {
+export const EditLocationDeleteButton = ({ place, onSuccess }: EditLocationDeleteButtonProps) => {
     const overlay = useOverlay()
 
     const handleClick = () => {
@@ -29,7 +30,7 @@ export const PreviewDeleteButton = ({ place, onSuccess }: PreviewDeleteButtonPro
                     }
                 }}
                 onCancel={() => {
-                    overlay.open(<Preview place={place} onSuccess={onSuccess} />)
+                    overlay.open(<EditLocation place={place} onSuccess={onSuccess} />)
                 }}
             />,
         )

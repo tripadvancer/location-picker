@@ -1,6 +1,6 @@
 'use client'
 
-import { SaveLocation } from '@/components/features/dialogs/save-location/save-location'
+import { AddLocation } from '@/components/features/dialogs/add-location/add-location'
 import { useOverlay } from '@/components/providers/overlay-provider'
 import { Button } from '@/components/ui/button'
 import { Coordinates } from '@/utils/types'
@@ -13,7 +13,7 @@ export const LocationSaveButton = ({ coordinates }: LocationSaveButtonProps) => 
     const overlay = useOverlay()
 
     const handleClick = () => {
-        overlay.open(<SaveLocation coordinates={coordinates} />)
+        overlay.open(<AddLocation coordinates={coordinates} />)
     }
 
     return (

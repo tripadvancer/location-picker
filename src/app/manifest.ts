@@ -14,6 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
         background_color: '#e8f4ff',
         theme_color: '#e8f4ff',
         categories: ['utilities', 'productivity'],
+
         icons: [
             {
                 src: '/icons/icon-192.png',
@@ -32,6 +33,7 @@ export default function manifest(): MetadataRoute.Manifest {
                 purpose: 'maskable',
             },
         ],
+
         screenshots: [
             {
                 src: '/images/about/full-screen.jpg',
@@ -46,6 +48,7 @@ export default function manifest(): MetadataRoute.Manifest {
                 form_factor: 'narrow',
             },
         ],
+
         protocol_handlers: [
             {
                 protocol: 'web+comedyportal',

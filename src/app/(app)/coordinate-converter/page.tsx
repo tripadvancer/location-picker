@@ -14,13 +14,16 @@ export const metadata: Metadata = {
         'location tool',
         'map coordinates',
     ],
+
     alternates: {
         canonical: '/coordinate-converter',
     },
+    
     robots: {
         index: true,
         follow: true,
     },
+    
     openGraph: {
         title: 'Coordinates Converter',
         description: 'Convert GPS coordinates easily between Decimal Degrees (DD) and Degrees Minutes Seconds (DMS) formats.',
@@ -36,6 +39,7 @@ export const metadata: Metadata = {
             },
         ],
     },
+    
     twitter: {
         card: 'summary_large_image',
         title: 'Coordinates Converter',

@@ -18,16 +18,20 @@ export const metadata: Metadata = {
         'Yandex.Maps',
         'coordinates manager',
     ],
+
     alternates: {
         canonical: '/landing',
     },
+    
     robots: {
         index: true,
         follow: true,
     },
+    
     appleWebApp: {
         title: 'My Saved Places',
     },
+    
     openGraph: {
         title: 'My Saved Places - Store and Share Locations Easily',
         description: 'My Saved Places is a free online tool to quickly save, manage, and share locations. Open your saved spots instantly in Google Maps, Waze, Apple Maps, or Yandex.Maps.',
@@ -44,6 +48,7 @@ export const metadata: Metadata = {
             },
         ],
     },
+    
     twitter: {
         card: 'summary_large_image',
         title: 'My Saved Places - Store and Share Locations Easily',

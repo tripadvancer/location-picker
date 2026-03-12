@@ -14,13 +14,16 @@ export const metadata: Metadata = {
         'map tools',
         'coordinates converter',
     ],
+
     alternates: {
         canonical: '/about'
     },
+    
     robots: {
         index: true,
         follow: true,
     },
+    
     openGraph: {
         title: 'About',
         description: 'Learn more about My Saved Places, a free online tool for searching, converting, storing and sharing locations by address or coordinates. Discover how it works and its features.',
@@ -36,6 +39,7 @@ export const metadata: Metadata = {
             },
         ],
     },
+    
     twitter: {
         card: 'summary_large_image',
         title: 'About',

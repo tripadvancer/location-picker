@@ -14,13 +14,16 @@ export const metadata: Metadata = {
         'GPS locations',
         'map bookmarks',
     ],
+
     alternates: {
         canonical: '/saved',
     },
+    
     robots: {
         index: false,
         follow: true,
     },
+    
     openGraph: {
         title: 'My Saved Locations',
         description: 'View and manage all your saved locations in one place. Easily access, edit, and share your locations.',
@@ -36,6 +39,7 @@ export const metadata: Metadata = {
             },
         ],
     },
+    
     twitter: {
         card: 'summary_large_image',
         title: 'My Saved Locations',
